@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 // Enhanced navigation loading hook with route-specific configurations
 export const useRouteLoading = () => {
 	const [isLoading, setIsLoading] = useState(false);
+	const [isVisible, setIsVisible] = useState(false);
 	const [loadingMessage, setLoadingMessage] = useState("Loading...");
 	const location = useLocation();
 
@@ -28,6 +29,7 @@ export const useRouteLoading = () => {
 
 	useEffect(() => {
 		setIsLoading(true);
+		setIsVisible(true);
 
 		// Find the appropriate config for the current route
 		const config = Object.entries(routeConfig).find(([route]) => location.pathname.startsWith(route))?.[1] || { delay: 300, message: "Loading..." };
@@ -35,13 +37,17 @@ export const useRouteLoading = () => {
 		setLoadingMessage(config.message);
 
 		const timer = setTimeout(() => {
-			setIsLoading(false);
+			setIsVisible(false); // Start fade-out
+			// Set loading to false after fade-out completes
+			setTimeout(() => {
+				setIsLoading(false);
+			}, 300); // Match fade-out duration
 		}, config.delay);
 
 		return () => clearTimeout(timer);
 	}, [location.pathname]);
 
-	return { isLoading, loadingMessage };
+	return { isLoading, isVisible, loadingMessage };
 };
 
 export default useRouteLoading;

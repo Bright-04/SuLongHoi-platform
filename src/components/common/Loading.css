@@ -10,6 +10,51 @@
 	justify-content: center;
 	align-items: center;
 	z-index: 9999;
+	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Fade animations */
+.loading-container.fade-in {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+
+.loading-container.fade-out {
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(0.95);
+}
+
+/* Enhanced loading content animations */
+.loading-container.fade-in .loading-content {
+	animation: slideUp 0.3s ease-out;
+}
+
+.loading-container.fade-out .loading-content {
+	animation: slideDown 0.3s ease-in;
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideDown {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateY(-30px);
+		opacity: 0;
+	}
 }
 
 .loading-content {

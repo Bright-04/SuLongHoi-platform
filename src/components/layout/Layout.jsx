@@ -11,22 +11,21 @@ const Layout = () => {
 	useScrollToTop();
 
 	// Show loading state during navigation with route-specific messages
-	const { isLoading, loadingMessage } = useRouteLoading();
-
-	if (isLoading) {
-		return <Loading message={loadingMessage} />;
-	}
+	const { isLoading, isVisible, loadingMessage } = useRouteLoading();
 
 	return (
-		<div className="website-container">
-			<Navbar />
-			<PageTransition isLoading={isLoading}>
-				<main>
-					<Outlet />
-				</main>
-			</PageTransition>
-			<Footer />
-		</div>
+		<>
+			{isLoading && <Loading message={loadingMessage} isVisible={isVisible} />}
+			<div className="website-container">
+				<Navbar />
+				<PageTransition isLoading={isLoading}>
+					<main>
+						<Outlet />
+					</main>
+				</PageTransition>
+				<Footer />
+			</div>
+		</>
 	);
 };
 
