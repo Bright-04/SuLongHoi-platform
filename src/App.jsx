@@ -1,12 +1,8 @@
 import React from "react";
+import Home from "./Home";
 
 function App() {
-	return (
-		<div>
-			<h1>Welcome to SuLongHoi Platform</h1>
-			<p>This is a React app powered by Vite.</p>
-		</div>
-	);
+	return <Home />;
 }
 
 export default App;
