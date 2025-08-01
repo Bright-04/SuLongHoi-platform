@@ -44,3 +44,9 @@ export const useIsMobile = () => {
 
 	return isMobile;
 };
+
+// Export new navigation hooks
+export { useScrollToTop } from "./useScrollToTop";
+export { useNavigationLoading } from "./useNavigationLoading";
+export { useRouteLoading } from "./useRouteLoading";
+export { useScrollManager } from "./useScrollManager";

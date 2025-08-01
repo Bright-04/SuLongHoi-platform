@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../../styles/layout/Navbar.css";
 import logo from "../../assets/images/logos/logo.png";
@@ -6,6 +6,7 @@ import logo from "../../assets/images/logos/logo.png";
 const Navbar = () => {
 	const location = useLocation();
 	const isHomePage = location.pathname === "/";
+	const [isNavigating, setIsNavigating] = useState(false);
 
 	const scrollToSection = (sectionId) => {
 		if (isHomePage) {
@@ -14,6 +15,18 @@ const Navbar = () => {
 				element.scrollIntoView({ behavior: "smooth" });
 			}
 		}
+	};
+
+	const handleLinkClick = () => {
+		setIsNavigating(true);
+		// Reset navigation state after a delay
+		setTimeout(() => setIsNavigating(false), 500);
+	};
+
+	const isActivePage = (path) => {
+		if (path === "/" && location.pathname === "/") return true;
+		if (path !== "/" && location.pathname.startsWith(path)) return true;
+		return false;
 	};
 
 	return (
@@ -25,10 +38,10 @@ const Navbar = () => {
 				</Link>
 
 				<div className="nav-menu">
-					<Link to="/" className="nav-link">
+					<Link to="/" className={`nav-link ${isActivePage("/") ? "active" : ""}`} onClick={handleLinkClick}>
 						Home
 					</Link>
-					<Link to="/knowledge" className="nav-link">
+					<Link to="/knowledge" className={`nav-link ${isActivePage("/knowledge") ? "active" : ""}`} onClick={handleLinkClick}>
 						Knowledge Library
 					</Link>
 					{isHomePage ? (
