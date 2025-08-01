@@ -9,18 +9,56 @@
 	margin: 0 auto;
 	padding: 0 var(--spacing-xl);
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+/* Nửa trên: Header với title và subtitle */
+.designer-header {
+	text-align: center;
+	padding: var(--spacing-3xl) 0;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.section-title {
+	font-size: 3rem;
+	font-weight: var(--font-bold);
+	color: var(--text-primary);
+	margin-bottom: var(--spacing-lg);
 }
 
 .section-subtitle {
 	text-align: center;
-	color: var(--text-secondary);
+	color: #333333 !important;
 	font-size: 1.2rem;
 	margin-top: var(--spacing-md);
-	margin-bottom: var(--spacing-2xl);
+	font-weight: var(--font-medium);
+}
+
+/* Override cho designer-header p */
+.designer-header .section-subtitle {
+	color: #333333 !important;
+}
+
+/* Nửa dưới: Content với designer-preview và actions trong 1 hàng */
+.designer-content {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: var(--spacing-3xl);
+	align-items: start;
+	padding: var(--spacing-2xl) 0;
+	flex: 1;
 }
 
 .designer-preview {
-	margin-top: var(--spacing-2xl);
+	background: var(--bg-white);
+	border-radius: var(--radius-xl);
+	padding: var(--spacing-2xl);
+	box-shadow: var(--shadow-lg);
 }
 
 .preview-content {
@@ -158,9 +196,17 @@
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Designer Actions - bên phải */
 .designer-actions {
+	background: var(--bg-white);
+	border-radius: var(--radius-xl);
+	padding: var(--spacing-2xl);
+	box-shadow: var(--shadow-lg);
 	text-align: center;
-	margin-top: var(--spacing-3xl);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: fit-content;
 }
 
 .designer-actions h3 {
@@ -171,9 +217,8 @@
 
 .action-buttons {
 	display: flex;
+	flex-direction: column;
 	gap: var(--spacing-lg);
-	justify-content: center;
-	flex-wrap: wrap;
 }
 
 .action-btn {
@@ -185,6 +230,7 @@
 	transition: all var(--transition-normal);
 	text-decoration: none;
 	display: inline-block;
+	text-align: center;
 }
 
 .action-btn.primary {
@@ -207,8 +253,6 @@
 .action-btn.secondary:hover {
 	background: var(--primary-color);
 	color: var(--text-white);
-	min-height: 600px;
-	position: relative;
 }
 
 .designer-interface--under-construction {
@@ -424,6 +468,11 @@
 
 /* Responsive Designer Section */
 @media (max-width: 1024px) {
+	.designer-content {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-2xl);
+	}
+	
 	.preview-content {
 		grid-template-columns: 1fr;
 		gap: var(--spacing-xl);
@@ -432,11 +481,27 @@
 	.preview-text {
 		text-align: center;
 	}
+	
+	.designer-actions {
+		order: -1;
+	}
 }
 
 @media (max-width: 768px) {
 	.designer-container {
 		padding: 0 var(--spacing-md);
+	}
+	
+	.section-title {
+		font-size: 2rem;
+	}
+	
+	.designer-header {
+		padding: var(--spacing-2xl) 0;
+	}
+	
+	.designer-content {
+		padding: var(--spacing-xl) 0;
 	}
 	
 	.preview-text h3 {
