@@ -1,0 +1,188 @@
+/* Mobile Optimization Styles */
+
+/* Global Mobile Improvements */
+@media (max-width: 768px) {
+	/* Ensure all containers have proper mobile padding */
+	.container,
+	.nav-container,
+	.section-container {
+		padding-left: var(--container-padding-mobile);
+		padding-right: var(--container-padding-mobile);
+	}
+
+	/* Better touch targets for mobile */
+	button,
+	.nav-link,
+	.cta-btn,
+	.tab,
+	.filter-btn {
+		min-height: 44px;
+		min-width: 44px;
+		padding: var(--spacing-sm) var(--spacing-md);
+	}
+
+	/* Improve text readability on mobile */
+	.section-title {
+		line-height: 1.2;
+		margin-bottom: var(--spacing-xl);
+	}
+
+	/* Better spacing for mobile */
+	section {
+		padding: var(--spacing-3xl) 0;
+	}
+
+	/* Grid improvements for mobile */
+	.featured-grid,
+	.knowledge-cards,
+	.courses-grid {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-lg);
+	}
+}
+
+@media (max-width: 480px) {
+	/* Even tighter spacing for small phones */
+	.container,
+	.nav-container,
+	.section-container {
+		padding-left: var(--spacing-md);
+		padding-right: var(--spacing-md);
+	}
+
+	/* Compact sections for small screens */
+	section {
+		padding: var(--spacing-2xl) 0;
+	}
+
+	/* Better card spacing */
+	.featured-card,
+	.knowledge-card,
+	.course-card {
+		margin: 0 var(--spacing-xs);
+		padding: var(--spacing-lg);
+	}
+
+	/* Improve button spacing */
+	.hero-cta-buttons,
+	.cta-buttons {
+		gap: var(--spacing-sm);
+	}
+
+	/* Make tabs more mobile friendly */
+	.knowledge-tabs,
+	.course-filters {
+		gap: var(--spacing-xs);
+	}
+
+	.tab,
+	.filter-btn {
+		padding: var(--spacing-xs) var(--spacing-sm);
+		font-size: var(--text-sm);
+	}
+}
+
+/* Fix horizontal scrolling issues */
+* {
+	max-width: 100%;
+}
+
+/* Improve image responsiveness */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Better form elements for mobile */
+@media (max-width: 768px) {
+	.search-bar,
+	.filter-select,
+	input,
+	select,
+	textarea {
+		width: 100%;
+		padding: var(--spacing-md);
+		font-size: 16px; /* Prevents zoom on iOS */
+		border-radius: var(--radius-md);
+	}
+}
+
+/* Optimize hero section for mobile */
+@media (max-width: 480px) {
+	.hero-section {
+		min-height: 500px;
+		height: 70vh;
+	}
+
+	.hero-content {
+		padding: var(--spacing-lg) var(--spacing-md);
+	}
+}
+
+/* Mobile-specific animations */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Improve scroll behavior for mobile */
+html {
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* Better hover states for touch devices */
+@media (hover: none) and (pointer: coarse) {
+	.featured-card:hover,
+	.knowledge-card:hover,
+	.course-card:hover {
+		transform: none;
+		box-shadow: var(--shadow-lg);
+	}
+
+	.cta-btn:hover,
+	.nav-btn:hover {
+		transform: none;
+	}
+}
+
+/* Ensure proper touch scrolling */
+.nav-menu {
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior: contain;
+}
+
+/* Fix viewport issues */
+@media (max-width: 768px) {
+	.hero-section,
+	section {
+		width: 100%;
+		overflow-x: hidden;
+	}
+}
+
+/* Improve readability */
+@media (max-width: 480px) {
+	body {
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		line-height: 1.3;
+	}
+
+	p {
+		line-height: 1.6;
+	}
+}

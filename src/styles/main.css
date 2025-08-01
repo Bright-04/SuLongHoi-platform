@@ -3,6 +3,7 @@
 /* Base Styles */
 @import "./base/variables.css";
 @import "./base/global.css";
+@import "./base/mobile-optimizations.css";
 
 /* Layout Styles */
 @import "./layout/Navbar.css";

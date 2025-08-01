@@ -7,6 +7,7 @@ const Navbar = () => {
 	const location = useLocation();
 	const isHomePage = location.pathname === "/";
 	const [isNavigating, setIsNavigating] = useState(false);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	const scrollToSection = (sectionId) => {
 		if (isHomePage) {
@@ -15,12 +16,19 @@ const Navbar = () => {
 				element.scrollIntoView({ behavior: "smooth" });
 			}
 		}
+		// Close mobile menu after scrolling
+		setIsMobileMenuOpen(false);
 	};
 
 	const handleLinkClick = () => {
 		setIsNavigating(true);
+		setIsMobileMenuOpen(false); // Close mobile menu
 		// Reset navigation state after a delay
 		setTimeout(() => setIsNavigating(false), 500);
+	};
+
+	const toggleMobileMenu = () => {
+		setIsMobileMenuOpen(!isMobileMenuOpen);
 	};
 
 	const isActivePage = (path) => {
@@ -37,7 +45,14 @@ const Navbar = () => {
 					<span className="logo-text">Sư Long Hội</span>
 				</Link>
 
-				<div className="nav-menu">
+				{/* Mobile Menu Button */}
+				<button className={`mobile-menu-btn ${isMobileMenuOpen ? "active" : ""}`} onClick={toggleMobileMenu} aria-label="Toggle mobile menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+
+				<div className={`nav-menu ${isMobileMenuOpen ? "mobile-open" : ""}`}>
 					<Link to="/" className={`nav-link ${isActivePage("/") ? "active" : ""}`} onClick={handleLinkClick}>
 						Home
 					</Link>
@@ -64,23 +79,33 @@ const Navbar = () => {
 						</>
 					) : (
 						<>
-							<Link to="/#designer" className="nav-link">
+							<Link to="/#designer" className="nav-link" onClick={handleLinkClick}>
 								3D Designer
 							</Link>
-							<Link to="/#learn" className="nav-link">
+							<Link to="/#learn" className="nav-link" onClick={handleLinkClick}>
 								Learn & Train
 							</Link>
-							<Link to="/#events" className="nav-link">
+							<Link to="/#events" className="nav-link" onClick={handleLinkClick}>
 								Live Events
 							</Link>
-							<Link to="/#community" className="nav-link">
+							<Link to="/#community" className="nav-link" onClick={handleLinkClick}>
 								Community
 							</Link>
-							<Link to="/#competitions" className="nav-link">
+							<Link to="/#competitions" className="nav-link" onClick={handleLinkClick}>
 								Competitions
 							</Link>
 						</>
 					)}
+
+					{/* Mobile Actions */}
+					<div className="nav-actions-mobile">
+						<button className="nav-btn nav-btn-secondary" onClick={() => setIsMobileMenuOpen(false)}>
+							Login
+						</button>
+						<button className="nav-btn nav-btn-primary" onClick={() => setIsMobileMenuOpen(false)}>
+							Join Now
+						</button>
+					</div>
 				</div>
 
 				<div className="nav-actions">

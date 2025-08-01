@@ -32,7 +32,7 @@
 
 .courses-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: var(--spacing-xl);
 	margin-bottom: var(--spacing-3xl);
 }
@@ -170,4 +170,80 @@
 	background: var(--primary-gradient);
 	border-radius: 6px;
 	transition: width var(--transition-normal);
+}
+
+/* Responsive Learn Section */
+@media (max-width: 768px) {
+	.learn-section {
+		padding: var(--spacing-3xl) 0;
+	}
+
+	.learn-interface {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-xl);
+	}
+
+	.course-grid {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-lg);
+	}
+
+	.courses-grid {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-lg);
+	}
+
+	.course-meta {
+		flex-direction: column;
+		gap: var(--spacing-sm);
+		align-items: flex-start;
+	}
+
+	.gamification {
+		padding: var(--spacing-xl);
+	}
+
+	.badges {
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.badge {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.learn-section {
+		padding: var(--spacing-2xl) 0;
+	}
+
+	.courses-grid {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-md);
+	}
+
+	.course-card {
+		margin-bottom: var(--spacing-lg);
+		margin: 0 var(--spacing-xs);
+	}
+
+	.course-info {
+		padding: var(--spacing-lg);
+	}
+
+	.course-info h3 {
+		font-size: var(--text-lg);
+	}
+
+	.gamification {
+		padding: var(--spacing-lg);
+		margin: 0 var(--spacing-xs);
+	}
+
+	.gamification h3 {
+		font-size: var(--text-lg);
+		margin-bottom: var(--spacing-lg);
+	}
 }
