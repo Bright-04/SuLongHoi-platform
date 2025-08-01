@@ -14,6 +14,7 @@ function App() {
 			<Suspense fallback={<Loading message="Loading SuLongHoi Platform..." />}>
 				<Routes>
 					<Route path="/design" element={<LionDesigner />} />
+					<Route path="/designer" element={<LionDesigner />} />
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Home />} />
 						<Route path="knowledge" element={<KnowledgePage />} />
