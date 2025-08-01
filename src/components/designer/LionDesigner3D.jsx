@@ -178,7 +178,7 @@ const LionHead = ({ onModelLoad, onModelError }) => {
   };
 
   return (
-    <group ref={meshRef} scale={design.scale} position={[0, 0.5, 0]}>
+    <group ref={meshRef} scale={design.scale} position={[design.position.x, design.position.y, design.position.z]}>
       {/* Real 3D Model - Only show if no error */}
       {!modelError && (
         <ModelWithSuspense 
@@ -203,10 +203,92 @@ const LionHead = ({ onModelLoad, onModelError }) => {
 const LionDesigner3D = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [modelLoaded, setModelLoaded] = useState(false);
+  const canvasRef = useRef();
+  const controlsRef = useRef();
+
+  // Function to set camera to optimal export position
+  const setExportCameraPosition = () => {
+    if (canvasRef.current && controlsRef.current) {
+      // Reset camera to front view
+      controlsRef.current.reset();
+      
+      // Set camera to front view for optimal lion head capture
+      const camera = controlsRef.current.object;
+      camera.position.set(0, 0, 4);
+      camera.lookAt(0, 0, 0);
+      camera.updateMatrixWorld();
+      
+      // Force a render
+      if (canvasRef.current.__r3f?.gl) {
+        const gl = canvasRef.current.__r3f.gl;
+        const scene = canvasRef.current.__r3f.scene;
+        gl.render(scene, camera);
+        
+        // Force the canvas to update
+        canvasRef.current.style.display = 'none';
+        canvasRef.current.offsetHeight; // Force reflow
+        canvasRef.current.style.display = 'block';
+      }
+    }
+  };
+
+  // Function to capture the current view as a data URL
+  const captureCurrentView = () => {
+    if (canvasRef.current) {
+      try {
+        // Force a render first
+        const gl = canvasRef.current.__r3f?.gl;
+        const scene = canvasRef.current.__r3f?.scene;
+        const camera = canvasRef.current.__r3f?.camera;
+        
+        if (gl && scene && camera) {
+          // Render the scene
+          gl.render(scene, camera);
+          
+          // Wait a bit for the render to complete
+          setTimeout(() => {
+            // This will be handled by the store
+          }, 100);
+        }
+        
+        // Create a temporary canvas to capture only the 3D content area
+        const tempCanvas = document.createElement('canvas');
+        const tempCtx = tempCanvas.getContext('2d');
+        
+        // Set the temp canvas size to match the original
+        tempCanvas.width = canvasRef.current.width;
+        tempCanvas.height = canvasRef.current.height;
+        
+        // Copy the WebGL canvas content
+        tempCtx.drawImage(canvasRef.current, 0, 0);
+        
+        // Use the temp canvas's toDataURL method
+        const dataURL = tempCanvas.toDataURL('image/png', 1.0);
+        console.log('Canvas data URL length:', dataURL.length);
+        console.log('Captured canvas dimensions:', tempCanvas.width, 'x', tempCanvas.height);
+        return dataURL;
+      } catch (error) {
+        console.error('Error capturing view:', error);
+        return null;
+      }
+    }
+    return null;
+  };
+
+  // Expose the function globally for the store to use
+  React.useEffect(() => {
+    window.setExportCameraPosition = setExportCameraPosition;
+    window.captureCurrentView = captureCurrentView;
+    return () => {
+      delete window.setExportCameraPosition;
+      delete window.captureCurrentView;
+    };
+  }, []);
 
   return (
     <div className="lion-3d-viewer" style={{ height: '100%', minHeight: '500px' }}>
       <Canvas
+        ref={canvasRef}
         camera={{ position: [3, 2, 4], fov: 45 }}
         onCreated={() => setIsLoading(false)}
         style={{ height: '100%' }}
@@ -227,6 +309,7 @@ const LionDesigner3D = () => {
 
         {/* Controls */}
         <OrbitControls 
+          ref={controlsRef}
           enablePan={true}
           enableZoom={true}
           enableRotate={true}
@@ -238,7 +321,9 @@ const LionDesigner3D = () => {
       
       {isLoading && (
         <div className="loading-overlay">
-          <div className="loading-spinner">Loading 3D Scene...</div>
+          <div className="loading-spinner">
+            <div className="loading-spinner-text">Loading 3D Scene...</div>
+          </div>
         </div>
       )}
       

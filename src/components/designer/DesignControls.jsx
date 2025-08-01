@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useLionDesignStore from '../../store/lionDesignStore';
+import ExportModal from './ExportModal';
 
 const DesignControls = () => {
-  const { design, options, updateDesign, resetDesign, exportDesign } = useLionDesignStore();
+  const { design, options, updateDesign, resetDesign, exportDesign, exportDesignAsImage } = useLionDesignStore();
+  const [showExportModal, setShowExportModal] = useState(false);
 
   // Debug: Log options to check if backgrounds exist
   console.log('🎨 DesignControls - Available options:', options);
@@ -157,7 +159,17 @@ const DesignControls = () => {
               Reset Design
             </button>
             <button className="btn btn-primary" onClick={exportDesign}>
-              Export Design
+              Export JSON
+            </button>
+          </div>
+          
+          <div className="action-buttons" style={{ marginTop: '8px' }}>
+            <button 
+              className="btn btn-primary" 
+              onClick={() => setShowExportModal(true)}
+              style={{ width: '100%' }}
+            >
+              Export Image
             </button>
           </div>
         </div>
@@ -197,6 +209,12 @@ const DesignControls = () => {
           </div>
         </div>
       </div>
+      
+      {/* Export Modal */}
+      <ExportModal 
+        isOpen={showExportModal} 
+        onClose={() => setShowExportModal(false)} 
+      />
     </div>
   );
 };

@@ -1,4 +1,45 @@
 import { create } from "zustand";
+import * as THREE from 'three';
+
+// Helper function to add overlays and download
+const addOverlaysAndDownload = (ctx, width, height, design, format, quality, exportCanvas) => {
+	// Add watermark
+	ctx.fillStyle = 'rgba(217, 48, 37, 0.1)';
+	ctx.font = 'bold 48px Arial';
+	ctx.textAlign = 'center';
+	ctx.fillText('SuLongHoi Platform', width / 2, height - 40);
+
+	// Add design info overlay
+	ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+	ctx.fillRect(20, height - 160, width - 40, 140);
+
+	// Add design info text
+	ctx.fillStyle = '#ffffff';
+	ctx.font = 'bold 28px Arial';
+	ctx.textAlign = 'left';
+	ctx.fillText('Lân Sư Design', 40, height - 130);
+	
+	ctx.font = '18px Arial';
+	ctx.fillText(`Colors: Fur(${design.furColor}) Mane(${design.maneColor}) Eyes(${design.eyeColor})`, 40, height - 105);
+	ctx.fillText(`Style: ${design.furTexture} | ${design.maneStyle} | ${design.pattern}`, 40, height - 80);
+	ctx.fillText(`Features: Whiskers(${design.whiskers ? 'Yes' : 'No'}) Horns(${design.horns ? 'Yes' : 'No'})`, 40, height - 55);
+	
+	// Add timestamp
+	const now = new Date();
+	ctx.font = '14px Arial';
+	ctx.fillText(`Created: ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`, 40, height - 30);
+
+	// Convert to blob and download
+	const mimeType = format === 'png' ? 'image/png' : 'image/jpeg';
+	exportCanvas.toBlob((blob) => {
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `lan-su-design-${Date.now()}.${format}`;
+		link.click();
+		URL.revokeObjectURL(url);
+	}, mimeType, quality);
+};
 
 const useLionDesignStore = create((set, get) => ({
 	// Lân Sư head design state (Lion-Dragon hybrid)
@@ -25,6 +66,7 @@ const useLionDesignStore = create((set, get) => ({
 		background: "light", // Background cho preview
 
 		// 3D positioning
+		position: { x: 0, y: -0.5, z: 0 },
 		rotation: { x: 0, y: 0, z: 0 },
 		scale: 1,
 	},
@@ -128,6 +170,7 @@ const useLionDesignStore = create((set, get) => ({
 				whiskers: true, // Râu Lân Sư
 				horns: true, // Sừng rồng trang trí
 				background: "light", // Background cho preview
+				position: { x: 0, y: -0.5, z: 0 },
 				rotation: { x: 0, y: 0, z: 0 },
 				scale: 1,
 			},
@@ -145,6 +188,193 @@ const useLionDesignStore = create((set, get) => ({
 		link.click();
 		URL.revokeObjectURL(url);
 	},
+
+	// Export design as image
+	exportDesignAsImage: async (format = 'png', quality = 0.9) => {
+		try {
+			// Find the 3D viewer canvas
+			const canvas = document.querySelector('.lion-3d-viewer canvas');
+			if (!canvas) {
+				throw new Error('3D viewer canvas not found');
+			}
+
+			// Debug: Check if canvas has content
+			console.log('Canvas dimensions:', canvas.width, 'x', canvas.height);
+			console.log('Canvas style dimensions:', canvas.style.width, 'x', canvas.style.height);
+
+			// Try to force a render and capture the current view
+			let capturedImageData = null;
+			if (window.setExportCameraPosition && window.captureCurrentView) {
+				window.setExportCameraPosition();
+				// Wait a bit for the render to complete
+				await new Promise(resolve => setTimeout(resolve, 1000));
+				capturedImageData = window.captureCurrentView();
+				console.log('Captured image data:', capturedImageData ? 'Success' : 'Failed');
+				if (capturedImageData) {
+					console.log('Data URL length:', capturedImageData.length);
+					console.log('Data URL starts with:', capturedImageData.substring(0, 50));
+				}
+			}
+
+			// Create a new canvas for the export
+			const exportCanvas = document.createElement('canvas');
+			const ctx = exportCanvas.getContext('2d');
+			
+			// Set canvas size (you can adjust these dimensions)
+			const width = 1920;
+			const height = 1080;
+			exportCanvas.width = width;
+			exportCanvas.height = height;
+
+			// Create background gradient based on design background
+			const { design } = get();
+			let gradient;
+			
+			switch (design.background) {
+				case 'dark':
+					gradient = ctx.createLinearGradient(0, 0, 0, height);
+					gradient.addColorStop(0, '#1a1a2e');
+					gradient.addColorStop(0.5, '#16213e');
+					gradient.addColorStop(1, '#0f3460');
+					break;
+				case 'gradient-red':
+					gradient = ctx.createLinearGradient(0, 0, 0, height);
+					gradient.addColorStop(0, '#fef7ff');
+					gradient.addColorStop(0.5, '#fee2e2');
+					gradient.addColorStop(1, '#fef2f2');
+					break;
+				case 'gradient-blue':
+					gradient = ctx.createLinearGradient(0, 0, 0, height);
+					gradient.addColorStop(0, '#eff6ff');
+					gradient.addColorStop(0.5, '#dbeafe');
+					gradient.addColorStop(1, '#f0f9ff');
+					break;
+				case 'gradient-gold':
+					gradient = ctx.createLinearGradient(0, 0, 0, height);
+					gradient.addColorStop(0, '#fffbeb');
+					gradient.addColorStop(0.5, '#fef3c7');
+					gradient.addColorStop(1, '#fefce8');
+					break;
+				case 'solid-white':
+					gradient = ctx.createLinearGradient(0, 0, 0, height);
+					gradient.addColorStop(0, '#ffffff');
+					gradient.addColorStop(1, '#ffffff');
+					break;
+				default: // light
+					gradient = ctx.createLinearGradient(0, 0, 0, height);
+					gradient.addColorStop(0, '#ffffff');
+					gradient.addColorStop(1, '#f8f9fa');
+					break;
+			}
+
+			// Fill background
+			ctx.fillStyle = gradient;
+			ctx.fillRect(0, 0, width, height);
+
+			// Draw the 3D model in the center with better positioning
+			const modelSize = Math.min(width, height) * 0.8; // Increased size for better visibility
+			const x = (width - modelSize) / 2;
+			const y = (height - modelSize) / 2 - 100; // Move up more to center the head
+
+			if (capturedImageData) {
+				// Use the captured image data if available
+				const img = new Image();
+				img.onload = () => {
+					console.log('Image loaded successfully, dimensions:', img.width, 'x', img.height);
+					
+					// Create a temporary canvas to resize the captured image
+					const tempCanvas = document.createElement('canvas');
+					const tempCtx = tempCanvas.getContext('2d');
+					tempCanvas.width = modelSize;
+					tempCanvas.height = modelSize;
+
+					// Calculate aspect ratio to maintain proportions
+					const aspectRatio = img.width / img.height;
+					let drawWidth = modelSize;
+					let drawHeight = modelSize;
+					let drawX = 0;
+					let drawY = 0;
+
+					if (aspectRatio > 1) {
+						// Image is wider than tall
+						drawHeight = modelSize / aspectRatio;
+						drawY = (modelSize - drawHeight) / 2;
+					} else {
+						// Image is taller than wide
+						drawWidth = modelSize * aspectRatio;
+						drawX = (modelSize - drawWidth) / 2;
+					}
+
+					// Draw the captured image onto the temp canvas with better quality
+					tempCtx.imageSmoothingEnabled = true;
+					tempCtx.imageSmoothingQuality = 'high';
+					tempCtx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
+
+					// Draw the resized model onto the export canvas
+					ctx.drawImage(tempCanvas, x, y, modelSize, modelSize);
+
+					// Add overlays and download
+					addOverlaysAndDownload(ctx, width, height, design, format, quality, exportCanvas);
+				};
+				img.onerror = (error) => {
+					console.error('Error loading captured image:', error);
+					// Fallback to the original method
+					fallbackToOriginalMethod();
+				};
+				img.src = capturedImageData;
+			} else {
+				// Fallback to the original method
+				fallbackToOriginalMethod();
+			}
+
+		} catch (error) {
+			console.error('Error exporting image:', error);
+			alert('Failed to export image. Please try again.');
+		}
+	},
 }));
+
+// Helper function for fallback method
+const fallbackToOriginalMethod = () => {
+	const canvas = document.querySelector('.lion-3d-viewer canvas');
+	if (!canvas) return;
+	
+	const exportCanvas = document.createElement('canvas');
+	const ctx = exportCanvas.getContext('2d');
+	
+	// Set canvas size
+	const width = 1920;
+	const height = 1080;
+	exportCanvas.width = width;
+	exportCanvas.height = height;
+	
+	// Create background
+	ctx.fillStyle = '#ffffff';
+	ctx.fillRect(0, 0, width, height);
+	
+	// Draw the 3D model in the center
+	const modelSize = Math.min(width, height) * 0.8;
+	const x = (width - modelSize) / 2;
+	const y = (height - modelSize) / 2 - 100;
+	
+	const tempCanvas = document.createElement('canvas');
+	const tempCtx = tempCanvas.getContext('2d');
+	tempCanvas.width = modelSize;
+	tempCanvas.height = modelSize;
+	
+	tempCtx.imageSmoothingEnabled = true;
+	tempCtx.imageSmoothingQuality = 'high';
+	
+	const canvasWidth = canvas.width || canvas.offsetWidth;
+	const canvasHeight = canvas.height || canvas.offsetHeight;
+	
+	console.log('Fallback: Drawing canvas with dimensions:', canvasWidth, 'x', canvasHeight);
+	tempCtx.drawImage(canvas, 0, 0, canvasWidth, canvasHeight, 0, 0, modelSize, modelSize);
+	ctx.drawImage(tempCanvas, x, y, modelSize, modelSize);
+	
+	// Add overlays and download
+	const { design } = useLionDesignStore.getState();
+	addOverlaysAndDownload(ctx, width, height, design, 'png', 0.9, exportCanvas);
+};
 
 export default useLionDesignStore;
