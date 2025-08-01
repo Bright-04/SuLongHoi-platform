@@ -1,13 +1,19 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../../styles/layout/Navbar.css";
 
 const Navbar = () => {
+	const location = useLocation();
+	const isDesignerPage = location.pathname === '/designer';
+
 	return (
 		<nav className="navbar">
 			<div className="nav-container">
 				<div className="nav-logo">
-					<img src="/logo.png" alt="Sư Long Hội" className="logo-img" />
-					<span className="logo-text">Sư Long Hội</span>
+					<Link to="/" className="logo-link">
+						<img src="/logo.png" alt="Sư Long Hội" className="logo-img" />
+						<span className="logo-text">Sư Long Hội</span>
+					</Link>
 				</div>
 
 				<div className="nav-menu">
@@ -17,9 +23,9 @@ const Navbar = () => {
 					<a href="#knowledge" className="nav-link">
 						Knowledge Library
 					</a>
-					<a href="#designer" className="nav-link">
+					<Link to="/designer" className={`nav-link ${isDesignerPage ? 'active' : ''}`}>
 						3D Designer
-					</a>
+					</Link>
 					<a href="#learn" className="nav-link">
 						Learn & Train
 					</a>

@@ -26,6 +26,13 @@
 	gap: 0.5rem;
 }
 
+.logo-link {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	text-decoration: none;
+}
+
 .logo-img {
 	width: 40px;
 	height: 40px;
@@ -71,6 +78,14 @@
 }
 
 .nav-link:hover::after {
+	width: 100%;
+}
+
+.nav-link.active {
+	color: #ff5757;
+}
+
+.nav-link.active::after {
 	width: 100%;
 }
 
