@@ -10,13 +10,10 @@ import { Loading, ProgressBar } from "./components/common";
 function App() {
 	return (
 		<Router>
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/designer" element={<LionDesigner />} />
-			</Routes>
 			<ProgressBar />
 			<Suspense fallback={<Loading message="Loading SuLongHoi Platform..." />}>
 				<Routes>
+					<Route path="/design" element={<LionDesigner />} />
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Home />} />
 						<Route path="knowledge" element={<KnowledgePage />} />
