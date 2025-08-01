@@ -23,6 +23,7 @@ body {
 :root {
 	/* Colors */
 	--primary-color: #d93025;
+	--primary-color-rgb: 217, 48, 37;
 	--primary-color-light: #e15759;
 	--primary-color-dark: #b71c1c;
 	--secondary-color: #f8f9fa;
