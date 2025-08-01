@@ -1,0 +1,263 @@
+/* Knowledge Section Styles */
+.knowledge-section {
+	padding: var(--spacing-4xl) 0;
+	background: var(--bg-white);
+}
+
+.knowledge-tabs {
+	display: flex;
+	justify-content: center;
+	gap: var(--spacing-md);
+	margin-bottom: var(--spacing-2xl);
+	flex-wrap: wrap;
+}
+
+.tab {
+	padding: var(--spacing-md) var(--spacing-xl);
+	border: 2px solid var(--primary-color);
+	background: transparent;
+	color: var(--primary-color);
+	border-radius: var(--radius-xl);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	font-weight: var(--font-semibold);
+}
+
+.tab.active,
+.tab:hover {
+	background: var(--primary-color);
+	color: var(--text-white);
+}
+
+.search-filters {
+	display: flex;
+	gap: var(--spacing-md);
+	margin-bottom: var(--spacing-xl);
+	flex-wrap: wrap;
+}
+
+.search-bar {
+	flex: 1;
+	padding: var(--spacing-md);
+	border: 2px solid #ddd;
+	border-radius: var(--radius-xl);
+	font-size: var(--text-base);
+	min-width: 250px;
+}
+
+.search-bar:focus {
+	outline: none;
+	border-color: var(--primary-color);
+}
+
+.filter-select {
+	padding: var(--spacing-md);
+	border: 2px solid #ddd;
+	border-radius: var(--radius-xl);
+	background: var(--bg-white);
+	cursor: pointer;
+}
+
+.vietnam-map {
+	margin: var(--spacing-2xl) 0;
+}
+
+.map-placeholder {
+	background: linear-gradient(135deg, var(--bg-light), #e9ecef);
+	border-radius: var(--radius-xl);
+	padding: var(--spacing-2xl);
+	text-align: center;
+	position: relative;
+	min-height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: var(--text-2xl);
+	color: var(--text-secondary);
+}
+
+.map-markers {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.marker {
+	position: absolute;
+	background: var(--primary-color);
+	color: var(--text-white);
+	padding: var(--spacing-sm) var(--spacing-md);
+	border-radius: var(--radius-md);
+	font-size: var(--text-sm);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+}
+
+.marker:hover {
+	transform: scale(1.1);
+	box-shadow: var(--shadow-primary);
+}
+
+.marker.north {
+	top: 20%;
+	left: 45%;
+}
+
+.marker.central {
+	top: 50%;
+	left: 50%;
+}
+
+.marker.south {
+	bottom: 20%;
+	right: 40%;
+}
+
+.knowledge-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: var(--spacing-xl);
+	margin-top: var(--spacing-2xl);
+}
+
+.knowledge-card {
+	background: var(--bg-white);
+	border-radius: var(--radius-xl);
+	padding: var(--spacing-xl);
+	box-shadow: var(--shadow-lg);
+	transition: all var(--transition-normal);
+	text-align: center;
+}
+
+.knowledge-card:hover {
+	transform: translateY(-5px);
+	box-shadow: var(--shadow-xl);
+}
+
+.card-image {
+	font-size: 4rem;
+	margin-bottom: var(--spacing-md);
+}
+
+.knowledge-card h3 {
+	font-size: var(--text-xl);
+	margin-bottom: var(--spacing-md);
+	color: var(--text-primary);
+}
+
+.knowledge-card p {
+	color: var(--text-secondary);
+	line-height: 1.6;
+	margin-bottom: var(--spacing-lg);
+}
+
+.learn-more-btn {
+	background: var(--primary-gradient);
+	color: var(--text-white);
+	border: none;
+	padding: var(--spacing-sm) var(--spacing-xl);
+	border-radius: var(--radius-xl);
+	cursor: pointer;
+	transition: all var(--transition-normal);
+	font-weight: var(--font-semibold);
+}
+
+.learn-more-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-primary);
+}
+
+/* Responsive Knowledge Section */
+@media (max-width: 768px) {
+	.knowledge-section {
+		padding: var(--spacing-3xl) 0;
+	}
+
+	.knowledge-tabs {
+		flex-direction: column;
+		gap: var(--spacing-sm);
+		margin-bottom: var(--spacing-xl);
+	}
+
+	.tab {
+		padding: var(--spacing-sm) var(--spacing-lg);
+		font-size: var(--text-sm);
+	}
+
+	.search-filters {
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.search-bar {
+		min-width: auto;
+		width: 100%;
+	}
+
+	.filter-select {
+		width: 100%;
+	}
+
+	.map-placeholder {
+		min-height: 200px;
+		font-size: var(--text-lg);
+		padding: var(--spacing-lg);
+	}
+
+	.marker {
+		font-size: var(--text-xs);
+		padding: var(--spacing-xs) var(--spacing-sm);
+	}
+
+	.knowledge-cards {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-lg);
+	}
+}
+
+@media (max-width: 480px) {
+	.knowledge-section {
+		padding: var(--spacing-2xl) 0;
+	}
+
+	.tab {
+		padding: var(--spacing-xs) var(--spacing-md);
+		font-size: var(--text-xs);
+	}
+
+	.map-placeholder {
+		min-height: 150px;
+		font-size: var(--text-base);
+		padding: var(--spacing-md);
+	}
+
+	.knowledge-cards {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-md);
+	}
+
+	.knowledge-card {
+		padding: var(--spacing-lg);
+		margin: 0 var(--spacing-xs);
+	}
+
+	.marker {
+		position: relative;
+		display: block;
+		margin-bottom: var(--spacing-sm);
+		background: var(--primary-color);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-sm);
+	}
+
+	.marker.north,
+	.marker.central,
+	.marker.south {
+		position: relative;
+		top: auto;
+		left: auto;
+		right: auto;
+		bottom: auto;
+	}
+}

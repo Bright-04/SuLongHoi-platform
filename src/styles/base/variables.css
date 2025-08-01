@@ -1,0 +1,230 @@
+/* Global Reset and Base Styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Inter", "Roboto", "Segoe UI", Arial, sans-serif;
+	line-height: 1.6;
+	color: #333;
+}
+
+/* CSS Custom Properties (Variables) */
+:root {
+	/* Colors */
+	--primary-color: #d93025;
+	--primary-color-rgb: 217, 48, 37;
+	--primary-color-light: #e15759;
+	--primary-color-dark: #b71c1c;
+	--secondary-color: #f8f9fa;
+	--accent-color: #f39c12;
+
+	/* Gradients */
+	--primary-gradient: linear-gradient(135deg, #d93025, #e15759);
+	--background-gradient: linear-gradient(135deg, #fef7ff 0%, #f0f8ff 25%, #fff5f5 50%, #fef7ff 100%);
+
+	/* Text Colors */
+	--text-primary: #333;
+	--text-secondary: #666;
+	--text-light: #999;
+	--text-white: #fff;
+
+	/* Background Colors */
+	--bg-white: #fff;
+	--bg-light: #f8f9fa;
+	--bg-lighter: #fef7ff;
+
+	/* Shadows */
+	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.1);
+	--shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.15);
+	--shadow-primary: 0 4px 15px rgba(231, 76, 60, 0.3);
+	--shadow-primary-lg: 0 8px 25px rgba(231, 76, 60, 0.4);
+
+	/* Border Radius */
+	--radius-sm: 0.5rem;
+	--radius-md: 1rem;
+	--radius-lg: 1.5rem;
+	--radius-xl: 2rem;
+	--radius-full: 50%;
+
+	/* Spacing */
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 1.5rem;
+	--spacing-xl: 2rem;
+	--spacing-2xl: 3rem;
+	--spacing-3xl: 4rem;
+	--spacing-4xl: 5rem;
+
+	/* Container and Layout */
+	--container-max-width: 1400px;
+	--container-padding: 2rem;
+	--container-padding-mobile: 1rem;
+
+	/* Font Sizes */
+	--text-xs: 0.75rem;
+	--text-sm: 0.875rem;
+	--text-base: 1rem;
+	--text-lg: 1.125rem;
+	--text-xl: 1.25rem;
+	--text-2xl: 1.5rem;
+	--text-3xl: 1.875rem;
+	--text-4xl: 2.25rem;
+	--text-5xl: 3rem;
+	--text-6xl: 4rem;
+
+	/* Font Weights */
+	--font-normal: 400;
+	--font-medium: 500;
+	--font-semibold: 600;
+	--font-bold: 700;
+	--font-extrabold: 800;
+	--font-black: 900;
+
+	/* Transitions */
+	--transition-fast: 0.15s ease;
+	--transition-normal: 0.3s ease;
+	--transition-slow: 0.5s ease;
+
+	/* Z-index */
+	--z-dropdown: 1000;
+	--z-sticky: 1020;
+	--z-fixed: 1030;
+	--z-modal: 1040;
+	--z-popover: 1050;
+	--z-tooltip: 1060;
+
+	/* Breakpoints */
+	--breakpoint-xs: 375px;
+	--breakpoint-sm: 480px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-2xl: 1536px;
+}
+
+/* Utility Classes */
+.container {
+	max-width: var(--container-max-width);
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+}
+
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
+
+.font-bold {
+	font-weight: var(--font-bold);
+}
+.font-semibold {
+	font-weight: var(--font-semibold);
+}
+.font-medium {
+	font-weight: var(--font-medium);
+}
+
+.text-primary {
+	color: var(--primary-color);
+}
+.text-secondary {
+	color: var(--text-secondary);
+}
+.text-white {
+	color: var(--text-white);
+}
+
+.bg-white {
+	background-color: var(--bg-white);
+}
+.bg-light {
+	background-color: var(--bg-light);
+}
+.bg-primary {
+	background: var(--primary-gradient);
+}
+
+.shadow-sm {
+	box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+	box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+	box-shadow: var(--shadow-lg);
+}
+
+.rounded-sm {
+	border-radius: var(--radius-sm);
+}
+.rounded-md {
+	border-radius: var(--radius-md);
+}
+.rounded-lg {
+	border-radius: var(--radius-lg);
+}
+.rounded-xl {
+	border-radius: var(--radius-xl);
+}
+.rounded-full {
+	border-radius: var(--radius-full);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 480px) {
+	:root {
+		--container-padding: var(--container-padding-mobile);
+		--text-6xl: 2.5rem;
+		--text-5xl: 2rem;
+		--text-4xl: 1.75rem;
+		--text-3xl: 1.5rem;
+		--spacing-4xl: 3rem;
+		--spacing-3xl: 2.5rem;
+		--spacing-2xl: 2rem;
+	}
+
+	.container {
+		padding: 0 var(--container-padding-mobile);
+	}
+}
+
+@media (max-width: 768px) {
+	:root {
+		--text-6xl: 3rem;
+		--text-5xl: 2.25rem;
+		--container-padding: 1.5rem;
+	}
+}
+
+@media (max-width: 1024px) {
+	.container {
+		padding: 0 1.5rem;
+	}
+}
+
+@media (max-width: 768px) {
+	:root {
+		--text-5xl: 2.5rem;
+		--text-4xl: 2rem;
+		--text-3xl: 1.5rem;
+	}
+}

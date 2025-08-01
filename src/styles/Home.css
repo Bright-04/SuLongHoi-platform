@@ -1,0 +1,51 @@
+/* Home Page Specific Styles */
+
+/* Website container styling for home page */
+.website-container {
+	background: linear-gradient(135deg, #fef7ff 0%, #f0f8ff 25%, #fff5f5 50%, #fef7ff 100%);
+	color: #333;
+	font-family: "Inter", "Roboto", "Segoe UI", Arial, sans-serif;
+	min-height: 100vh;
+}
+
+/* Home page layout adjustments */
+.home-page {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+/* Main content area */
+.home-main {
+	flex: 1;
+	padding-top: 80px; /* Account for fixed navbar */
+}
+
+/* Smooth scroll behavior for home page */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Container for consistent max-width across sections */
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+/* Responsive adjustments for home page */
+@media (max-width: 768px) {
+	.container {
+		padding: 0 1rem;
+	}
+
+	.home-main {
+		padding-top: 60px; /* Smaller navbar height on mobile */
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		padding: 0 0.75rem;
+	}
+}

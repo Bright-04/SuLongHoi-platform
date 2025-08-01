@@ -1,0 +1,27 @@
+/* Global Layout Styles */
+.website-container {
+	background: var(--background-gradient);
+	color: var(--text-primary);
+	font-family: "Inter", "Roboto", "Segoe UI", Arial, sans-serif;
+	min-height: 100vh;
+}
+
+/* Section Title Styles */
+.section-title {
+	font-size: var(--text-5xl);
+	font-weight: var(--font-black);
+	background: var(--primary-gradient);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-align: center;
+	margin-bottom: var(--spacing-2xl);
+}
+
+/* Responsive Section Title */
+@media (max-width: 768px) {
+	.section-title {
+		font-size: var(--text-4xl);
+		margin-bottom: var(--spacing-xl);
+	}
+}
