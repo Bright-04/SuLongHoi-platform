@@ -1,9 +1,7 @@
 import React from "react";
 import "../styles/main.css";
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
 import HeroSection from "../components/sections/HeroSection";
-import KnowledgeSection from "../components/sections/KnowledgeSection";
+import KnowledgePreview from "../components/sections/KnowledgePreview";
 import DesignerSection from "../components/sections/DesignerSection";
 import LearnSection from "../components/sections/LearnSection";
 import EventsSection from "../components/sections/EventsSection";
@@ -12,17 +10,15 @@ import CompetitionsSection from "../components/sections/CompetitionsSection";
 
 const Home = () => {
 	return (
-		<div className="website-container">
-			<Navbar />
+		<>
 			<HeroSection />
-			<KnowledgeSection />
+			<KnowledgePreview />
 			<DesignerSection />
 			<LearnSection />
 			<EventsSection />
 			<CommunitySection />
 			<CompetitionsSection />
-			<Footer />
-		</div>
+		</>
 	);
 };
 

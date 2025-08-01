@@ -1,38 +1,73 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../../styles/layout/Navbar.css";
 import logo from "../../assets/images/logos/logo.png";
 
 const Navbar = () => {
+	const location = useLocation();
+	const isHomePage = location.pathname === "/";
+
+	const scrollToSection = (sectionId) => {
+		if (isHomePage) {
+			const element = document.getElementById(sectionId);
+			if (element) {
+				element.scrollIntoView({ behavior: "smooth" });
+			}
+		}
+	};
+
 	return (
 		<nav className="navbar">
 			<div className="nav-container">
-				<div className="nav-logo">
+				<Link to="/" className="nav-logo">
 					<img src={logo} alt="Sư Long Hội" className="logo-img" />
 					<span className="logo-text">Sư Long Hội</span>
-				</div>
+				</Link>
 
 				<div className="nav-menu">
-					<a href="#home" className="nav-link">
+					<Link to="/" className="nav-link">
 						Home
-					</a>
-					<a href="#knowledge" className="nav-link">
+					</Link>
+					<Link to="/knowledge" className="nav-link">
 						Knowledge Library
-					</a>
-					<a href="#designer" className="nav-link">
-						3D Designer
-					</a>
-					<a href="#learn" className="nav-link">
-						Learn & Train
-					</a>
-					<a href="#events" className="nav-link">
-						Live Events
-					</a>
-					<a href="#community" className="nav-link">
-						Community
-					</a>
-					<a href="#competitions" className="nav-link">
-						Competitions
-					</a>
+					</Link>
+					{isHomePage ? (
+						<>
+							<a href="#designer" className="nav-link" onClick={() => scrollToSection("designer")}>
+								3D Designer
+							</a>
+							<a href="#learn" className="nav-link" onClick={() => scrollToSection("learn")}>
+								Learn & Train
+							</a>
+							<a href="#events" className="nav-link" onClick={() => scrollToSection("events")}>
+								Live Events
+							</a>
+							<a href="#community" className="nav-link" onClick={() => scrollToSection("community")}>
+								Community
+							</a>
+							<a href="#competitions" className="nav-link" onClick={() => scrollToSection("competitions")}>
+								Competitions
+							</a>
+						</>
+					) : (
+						<>
+							<Link to="/#designer" className="nav-link">
+								3D Designer
+							</Link>
+							<Link to="/#learn" className="nav-link">
+								Learn & Train
+							</Link>
+							<Link to="/#events" className="nav-link">
+								Live Events
+							</Link>
+							<Link to="/#community" className="nav-link">
+								Community
+							</Link>
+							<Link to="/#competitions" className="nav-link">
+								Competitions
+							</Link>
+						</>
+					)}
 				</div>
 
 				<div className="nav-actions">
