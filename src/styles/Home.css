@@ -1,299 +1,51 @@
-/* ===========================
-   HOME PAGE SPECIFIC STYLES
-   ===========================
-   This file contains simplified Home page styles,
-   animations, and layout utilities after refactoring.
-   Reduced from 2400+ lines to ~200 lines.
-*/
+/* Home Page Specific Styles */
 
-/* --- Main Layout Container --- */
+/* Website container styling for home page */
 .website-container {
 	background: linear-gradient(135deg, #fef7ff 0%, #f0f8ff 25%, #fff5f5 50%, #fef7ff 100%);
 	color: #333;
 	font-family: "Inter", "Roboto", "Segoe UI", Arial, sans-serif;
 	min-height: 100vh;
-	position: relative;
-	overflow-x: hidden;
 }
 
+/* Home page layout adjustments */
+.home-page {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+/* Main content area */
+.home-main {
+	flex: 1;
+	padding-top: 80px; /* Account for fixed navbar */
+}
+
+/* Smooth scroll behavior for home page */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Container for consistent max-width across sections */
 .container {
 	max-width: 1400px;
 	margin: 0 auto;
 	padding: 0 2rem;
 }
 
-/* --- Floating Particles Animation --- */
-.floating-particles {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	z-index: 1;
-}
-
-.particle {
-	position: absolute;
-	font-size: 2rem;
-	opacity: 0.3;
-	animation: float 8s infinite ease-in-out;
-	color: var(--primary-color, #ff5757);
-}
-
-.particle-1 {
-	top: 10%;
-	left: 10%;
-	animation-delay: 0s;
-}
-.particle-2 {
-	top: 20%;
-	right: 15%;
-	animation-delay: -2s;
-}
-.particle-3 {
-	top: 60%;
-	left: 5%;
-	animation-delay: -4s;
-}
-.particle-4 {
-	bottom: 20%;
-	right: 20%;
-	animation-delay: -6s;
-}
-.particle-5 {
-	bottom: 10%;
-	left: 30%;
-	animation-delay: -1s;
-}
-
-/* --- Background Shapes --- */
-.hero-shapes {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-	z-index: -1;
-}
-
-.shape {
-	position: absolute;
-	border-radius: 50%;
-	background: linear-gradient(135deg, rgba(255, 87, 87, 0.1), rgba(255, 135, 135, 0.1));
-	animation: rotate 20s linear infinite;
-}
-
-.shape-1 {
-	width: 300px;
-	height: 300px;
-	top: -150px;
-	right: -150px;
-	animation-duration: 25s;
-}
-
-.shape-2 {
-	width: 200px;
-	height: 200px;
-	bottom: -100px;
-	left: -100px;
-	animation-duration: 30s;
-	animation-direction: reverse;
-}
-
-.shape-3 {
-	width: 150px;
-	height: 150px;
-	top: 50%;
-	left: -75px;
-	animation-duration: 35s;
-}
-
-/* --- Dragon and Lion Animation --- */
-.dragon-animation {
-	position: relative;
-	width: 100%;
-	height: 400px;
-	background: linear-gradient(135deg, rgba(255, 87, 87, 0.1), rgba(255, 135, 135, 0.1));
-	border-radius: 2rem;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.dragon-body {
-	position: absolute;
-	animation: dragonDance 6s ease-in-out infinite;
-}
-
-.dragon-emoji {
-	font-size: 8rem;
-	filter: drop-shadow(0 4px 8px rgba(255, 87, 87, 0.3));
-}
-
-.lion-body {
-	position: absolute;
-	animation: lionDance 4s ease-in-out infinite;
-	animation-delay: -2s;
-}
-
-.lion-emoji {
-	font-size: 6rem;
-	filter: drop-shadow(0 4px 8px rgba(255, 135, 135, 0.3));
-}
-
-/* --- Animation Keyframes --- */
-@keyframes float {
-	0%,
-	100% {
-		transform: translateY(0px) rotate(0deg);
-		opacity: 0.2;
-	}
-	50% {
-		transform: translateY(-20px) rotate(180deg);
-		opacity: 0.4;
-	}
-}
-
-@keyframes rotate {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes pulse {
-	0%,
-	100% {
-		transform: scale(1);
-		opacity: 1;
-	}
-	50% {
-		transform: scale(1.05);
-		opacity: 0.8;
-	}
-}
-
-@keyframes titleGlow {
-	from {
-		filter: drop-shadow(0 0 10px rgba(255, 87, 87, 0.3));
-	}
-	to {
-		filter: drop-shadow(0 0 20px rgba(255, 87, 87, 0.5));
-	}
-}
-
-@keyframes visualPulse {
-	0%,
-	100% {
-		opacity: 0.3;
-		transform: scale(0.95);
-	}
-	50% {
-		opacity: 0.6;
-		transform: scale(1.05);
-	}
-}
-
-@keyframes ripple {
-	0% {
-		transform: scale(0.8);
-		opacity: 0.3;
-	}
-	100% {
-		transform: scale(1.2);
-		opacity: 0;
-	}
-}
-
-@keyframes dragonDance {
-	0%,
-	100% {
-		transform: translateX(-50px) translateY(0px) rotate(0deg);
-	}
-	25% {
-		transform: translateX(0px) translateY(-30px) rotate(5deg);
-	}
-	50% {
-		transform: translateX(50px) translateY(0px) rotate(0deg);
-	}
-	75% {
-		transform: translateX(0px) translateY(30px) rotate(-5deg);
-	}
-}
-
-@keyframes lionDance {
-	0%,
-	100% {
-		transform: translateX(30px) translateY(20px) rotate(0deg);
-	}
-	25% {
-		transform: translateX(-20px) translateY(-10px) rotate(-3deg);
-	}
-	50% {
-		transform: translateX(-30px) translateY(20px) rotate(0deg);
-	}
-	75% {
-		transform: translateX(20px) translateY(-20px) rotate(3deg);
-	}
-}
-
-/* --- Utility Classes --- */
-.pulse-animation {
-	animation: pulse 2s infinite;
-}
-
-.glow-animation {
-	animation: titleGlow 3s ease-in-out infinite alternate;
-}
-
-.ripple-effect {
-	animation: ripple 2s infinite;
-}
-
-.visual-glow {
-	animation: visualPulse 4s ease-in-out infinite;
-}
-
-/* --- Responsive Layout --- */
+/* Responsive adjustments for home page */
 @media (max-width: 768px) {
 	.container {
 		padding: 0 1rem;
 	}
 
-	.particle {
-		font-size: 1.5rem;
-	}
-
-	.dragon-emoji {
-		font-size: 6rem;
-	}
-
-	.lion-emoji {
-		font-size: 4rem;
-	}
-
-	.shape-1,
-	.shape-2,
-	.shape-3 {
-		opacity: 0.5;
+	.home-main {
+		padding-top: 60px; /* Smaller navbar height on mobile */
 	}
 }
 
 @media (max-width: 480px) {
-	.dragon-animation {
-		height: 300px;
-	}
-
-	.dragon-emoji {
-		font-size: 4rem;
-	}
-
-	.lion-emoji {
-		font-size: 3rem;
+	.container {
+		padding: 0 0.75rem;
 	}
 }

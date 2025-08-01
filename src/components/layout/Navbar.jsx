@@ -1,12 +1,13 @@
 import React from "react";
 import "../../styles/layout/Navbar.css";
+import logo from "../../assets/images/logos/logo.png";
 
 const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<div className="nav-container">
 				<div className="nav-logo">
-					<img src="/logo.png" alt="Sư Long Hội" className="logo-img" />
+					<img src={logo} alt="Sư Long Hội" className="logo-img" />
 					<span className="logo-text">Sư Long Hội</span>
 				</div>
 
