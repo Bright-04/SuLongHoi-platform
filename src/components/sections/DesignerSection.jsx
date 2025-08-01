@@ -13,7 +13,7 @@ const DesignerSection = () => {
 						<div className="preview-text">
 							<h3>🎨 Interactive 3D Designer</h3>
 							<p>Experience the future of lion head design with our cutting-edge 3D tool. Customize every aspect of your digital lion head in real-time.</p>
-							
+
 							<div className="feature-list">
 								<div className="feature-item">
 									<span className="feature-icon">🎨</span>
@@ -31,6 +31,27 @@ const DesignerSection = () => {
 									<span className="feature-icon">📱</span>
 									<span>Works on all devices</span>
 								</div>
+							</div>
+						</div>
+
+						<div className="preview-visual">
+							<div className="mock-3d-viewer">
+								<div className="mock-lion-head">🦁</div>
+								<div className="mock-controls">
+									<div className="mock-color-picker">
+										<div className="color-dot" style={{ backgroundColor: "#D4AF37" }}></div>
+										<div className="color-dot" style={{ backgroundColor: "#8B4513" }}></div>
+										<div className="color-dot" style={{ backgroundColor: "#FFD700" }}></div>
+									</div>
+									<div className="mock-sliders">
+										<div className="mock-slider"></div>
+										<div className="mock-slider"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div className="designer-interface designer-interface--under-construction">
 					<div className="designer-sidebar">
@@ -47,27 +68,6 @@ const DesignerSection = () => {
 								<label>Horn Style</label>
 								<input type="range" className="slider" />
 							</div>
-
-							<Link to="/designer" className="cta-button">
-								🚀 Try the 3D Designer Now
-							</Link>
-						</div>
-						
-						<div className="preview-visual">
-							<div className="mock-3d-viewer">
-								<div className="mock-lion-head">🦁</div>
-								<div className="mock-controls">
-									<div className="mock-color-picker">
-										<div className="color-dot" style={{backgroundColor: '#D4AF37'}}></div>
-										<div className="color-dot" style={{backgroundColor: '#8B4513'}}></div>
-										<div className="color-dot" style={{backgroundColor: '#FFD700'}}></div>
-									</div>
-									<div className="mock-sliders">
-										<div className="mock-slider"></div>
-										<div className="mock-slider"></div>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -78,9 +78,7 @@ const DesignerSection = () => {
 						<Link to="/designer" className="action-btn primary">
 							🎨 Start Designing
 						</Link>
-						<button className="action-btn secondary">
-							📖 Learn More
-						</button>
+						<button className="action-btn secondary">📖 Learn More</button>
 					</div>
 				</div>
 
