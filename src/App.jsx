@@ -1,5 +1,6 @@
-import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LionDesigner from "./pages/LionDesigner";
+import React, { Suspense } from "react";
 import Home from "./pages/Home";
 import KnowledgePage from "./pages/KnowledgePage";
 import ArticlePage from "./pages/ArticlePage";
@@ -9,6 +10,10 @@ import { Loading, ProgressBar } from "./components/common";
 function App() {
 	return (
 		<Router>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/designer" element={<LionDesigner />} />
+			</Routes>
 			<ProgressBar />
 			<Suspense fallback={<Loading message="Loading SuLongHoi Platform..." />}>
 				<Routes>

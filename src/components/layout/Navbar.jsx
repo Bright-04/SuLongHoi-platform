@@ -5,6 +5,7 @@ import logo from "../../assets/images/logos/logo.png";
 
 const Navbar = () => {
 	const location = useLocation();
+	const isDesignerPage = location.pathname === '/designer';
 	const isHomePage = location.pathname === "/";
 	const [isNavigating, setIsNavigating] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,6 +41,12 @@ const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<div className="nav-container">
+				<div className="nav-logo">
+					<Link to="/" className="logo-link">
+						<img src="/logo.png" alt="Sư Long Hội" className="logo-img" />
+						<span className="logo-text">Sư Long Hội</span>
+					</Link>
+				</div>
 				<Link to="/" className="nav-logo">
 					<img src={logo} alt="Sư Long Hội" className="logo-img" />
 					<span className="logo-text">Sư Long Hội</span>
@@ -58,6 +65,22 @@ const Navbar = () => {
 					</Link>
 					<Link to="/knowledge" className={`nav-link ${isActivePage("/knowledge") ? "active" : ""}`} onClick={handleLinkClick}>
 						Knowledge Library
+					</a>
+					<Link to="/designer" className={`nav-link ${isDesignerPage ? 'active' : ''}`}>
+						3D Designer
+					</Link>
+					<a href="#learn" className="nav-link">
+						Learn & Train
+					</a>
+					<a href="#events" className="nav-link">
+						Live Events
+					</a>
+					<a href="#community" className="nav-link">
+						Community
+					</a>
+					<a href="#competitions" className="nav-link">
+						Competitions
+					</a>
 					</Link>
 					{isHomePage ? (
 						<>
