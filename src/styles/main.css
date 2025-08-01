@@ -1,0 +1,21 @@
+/* Main CSS Entry Point - Import all styles */
+
+/* Base Styles */
+@import "./base/variables.css";
+@import "./base/global.css";
+
+/* Layout Styles */
+@import "./layout/Navbar.css";
+@import "./layout/Footer.css";
+
+/* Section Styles */
+@import "./sections/HeroSection.css";
+@import "./sections/KnowledgeSection.css";
+@import "./sections/DesignerSection.css";
+@import "./sections/LearnSection.css";
+@import "./sections/EventsSection.css";
+@import "./sections/CommunitySection.css";
+@import "./sections/CompetitionsSection.css";
+
+/* Home Page Specific Styles */
+@import "./Home.css";
