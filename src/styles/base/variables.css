@@ -22,14 +22,15 @@ body {
 /* CSS Custom Properties (Variables) */
 :root {
 	/* Colors */
-	--primary-color: #ff5757;
-	--primary-color-light: #ff8787;
-	--primary-color-dark: #e63946;
+	--primary-color: #d93025;
+	--primary-color-rgb: 217, 48, 37;
+	--primary-color-light: #e15759;
+	--primary-color-dark: #b71c1c;
 	--secondary-color: #f8f9fa;
-	--accent-color: #ffaa87;
+	--accent-color: #f39c12;
 
 	/* Gradients */
-	--primary-gradient: linear-gradient(135deg, #ff5757, #ff8787);
+	--primary-gradient: linear-gradient(135deg, #d93025, #e15759);
 	--background-gradient: linear-gradient(135deg, #fef7ff 0%, #f0f8ff 25%, #fff5f5 50%, #fef7ff 100%);
 
 	/* Text Colors */
@@ -48,8 +49,8 @@ body {
 	--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
 	--shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.1);
 	--shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.15);
-	--shadow-primary: 0 4px 15px rgba(255, 87, 87, 0.3);
-	--shadow-primary-lg: 0 8px 25px rgba(255, 87, 87, 0.4);
+	--shadow-primary: 0 4px 15px rgba(231, 76, 60, 0.3);
+	--shadow-primary-lg: 0 8px 25px rgba(231, 76, 60, 0.4);
 
 	/* Border Radius */
 	--radius-sm: 0.5rem;
@@ -67,6 +68,11 @@ body {
 	--spacing-2xl: 3rem;
 	--spacing-3xl: 4rem;
 	--spacing-4xl: 5rem;
+
+	/* Container and Layout */
+	--container-max-width: 1400px;
+	--container-padding: 2rem;
+	--container-padding-mobile: 1rem;
 
 	/* Font Sizes */
 	--text-xs: 0.75rem;
@@ -100,13 +106,21 @@ body {
 	--z-modal: 1040;
 	--z-popover: 1050;
 	--z-tooltip: 1060;
+
+	/* Breakpoints */
+	--breakpoint-xs: 375px;
+	--breakpoint-sm: 480px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-2xl: 1536px;
 }
 
 /* Utility Classes */
 .container {
-	max-width: 1400px;
+	max-width: var(--container-max-width);
 	margin: 0 auto;
-	padding: 0 var(--spacing-xl);
+	padding: 0 var(--container-padding);
 }
 
 .text-center {
@@ -176,9 +190,34 @@ body {
 }
 
 /* Responsive Breakpoints */
-@media (max-width: 640px) {
+@media (max-width: 480px) {
+	:root {
+		--container-padding: var(--container-padding-mobile);
+		--text-6xl: 2.5rem;
+		--text-5xl: 2rem;
+		--text-4xl: 1.75rem;
+		--text-3xl: 1.5rem;
+		--spacing-4xl: 3rem;
+		--spacing-3xl: 2.5rem;
+		--spacing-2xl: 2rem;
+	}
+
 	.container {
-		padding: 0 var(--spacing-md);
+		padding: 0 var(--container-padding-mobile);
+	}
+}
+
+@media (max-width: 768px) {
+	:root {
+		--text-6xl: 3rem;
+		--text-5xl: 2.25rem;
+		--container-padding: 1.5rem;
+	}
+}
+
+@media (max-width: 1024px) {
+	.container {
+		padding: 0 1.5rem;
 	}
 }
 

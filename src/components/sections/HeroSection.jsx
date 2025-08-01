@@ -5,7 +5,14 @@ const HeroSection = () => {
 	return (
 		<section id="home" className="hero-section">
 			<div className="hero-video-bg">
-				<div className="video-placeholder">🎭 Lion Dance Performance Video Background</div>
+				<div className="collage-container">
+					<div className="collage-slide">
+						<img src="/src/assets/images/illustrations/collage1.png" alt="Lion Dance Collage" />
+					</div>
+					<div className="collage-slide">
+						<img src="/src/assets/images/illustrations/collage1.png" alt="Lion Dance Collage" />
+					</div>
+				</div>
 			</div>
 
 			<div className="hero-overlay">

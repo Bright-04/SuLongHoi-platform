@@ -8,6 +8,7 @@
 	max-width: 1600px;
 	margin: 0 auto;
 	padding: 0 var(--spacing-xl);
+	position: relative;
 }
 
 .section-subtitle {
@@ -206,6 +207,15 @@
 .action-btn.secondary:hover {
 	background: var(--primary-color);
 	color: var(--text-white);
+	min-height: 600px;
+	position: relative;
+}
+
+.designer-interface--under-construction {
+	filter: blur(8px);
+	pointer-events: none;
+	user-select: none;
+	opacity: 0.3;
 }
 
 .designer-sidebar {
@@ -350,6 +360,68 @@
 	box-shadow: var(--shadow-primary);
 }
 
+/* Under Construction Overlay */
+.under-construction-overlay {
+	position: absolute;
+	top: calc(50% + var(--spacing-xl));
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 100;
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	border-radius: var(--radius-2xl);
+	padding: var(--spacing-3xl);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	border: 2px solid var(--primary-color);
+	text-align: center;
+	max-width: 500px;
+	width: 90%;
+	pointer-events: auto;
+}
+
+.under-construction-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-lg);
+}
+
+.construction-icon {
+	font-size: 4rem;
+	animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-10px);
+	}
+	60% {
+		transform: translateY(-5px);
+	}
+}
+
+.under-construction-message h3 {
+	font-size: var(--text-2xl);
+	font-weight: var(--font-bold);
+	color: var(--primary-color);
+	margin: 0;
+}
+
+.under-construction-message p {
+	font-size: var(--text-base);
+	color: var(--text-secondary);
+	line-height: 1.6;
+	margin: 0;
+	max-width: 400px;
+}
+
 /* Responsive Designer Section */
 @media (max-width: 1024px) {
 	.preview-content {
@@ -383,5 +455,22 @@
 	.action-btn {
 		width: 100%;
 		max-width: 300px;
+	}
+
+	.under-construction-overlay {
+		padding: var(--spacing-2xl);
+		width: 95%;
+	}
+
+	.construction-icon {
+		font-size: 3rem;
+	}
+
+	.under-construction-message h3 {
+		font-size: var(--text-xl);
+	}
+
+	.under-construction-message p {
+		font-size: var(--text-sm);
 	}
 }

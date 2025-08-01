@@ -42,7 +42,7 @@
 	border: 2px solid #ddd;
 	border-radius: var(--radius-xl);
 	font-size: var(--text-base);
-	min-width: 300px;
+	min-width: 250px;
 }
 
 .search-bar:focus {
@@ -116,7 +116,7 @@
 
 .knowledge-cards {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: var(--spacing-xl);
 	margin-top: var(--spacing-2xl);
 }
@@ -166,4 +166,98 @@
 .learn-more-btn:hover {
 	transform: translateY(-2px);
 	box-shadow: var(--shadow-primary);
+}
+
+/* Responsive Knowledge Section */
+@media (max-width: 768px) {
+	.knowledge-section {
+		padding: var(--spacing-3xl) 0;
+	}
+
+	.knowledge-tabs {
+		flex-direction: column;
+		gap: var(--spacing-sm);
+		margin-bottom: var(--spacing-xl);
+	}
+
+	.tab {
+		padding: var(--spacing-sm) var(--spacing-lg);
+		font-size: var(--text-sm);
+	}
+
+	.search-filters {
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.search-bar {
+		min-width: auto;
+		width: 100%;
+	}
+
+	.filter-select {
+		width: 100%;
+	}
+
+	.map-placeholder {
+		min-height: 200px;
+		font-size: var(--text-lg);
+		padding: var(--spacing-lg);
+	}
+
+	.marker {
+		font-size: var(--text-xs);
+		padding: var(--spacing-xs) var(--spacing-sm);
+	}
+
+	.knowledge-cards {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-lg);
+	}
+}
+
+@media (max-width: 480px) {
+	.knowledge-section {
+		padding: var(--spacing-2xl) 0;
+	}
+
+	.tab {
+		padding: var(--spacing-xs) var(--spacing-md);
+		font-size: var(--text-xs);
+	}
+
+	.map-placeholder {
+		min-height: 150px;
+		font-size: var(--text-base);
+		padding: var(--spacing-md);
+	}
+
+	.knowledge-cards {
+		grid-template-columns: 1fr;
+		gap: var(--spacing-md);
+	}
+
+	.knowledge-card {
+		padding: var(--spacing-lg);
+		margin: 0 var(--spacing-xs);
+	}
+
+	.marker {
+		position: relative;
+		display: block;
+		margin-bottom: var(--spacing-sm);
+		background: var(--primary-color);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-sm);
+	}
+
+	.marker.north,
+	.marker.central,
+	.marker.south {
+		position: relative;
+		top: auto;
+		left: auto;
+		right: auto;
+		bottom: auto;
+	}
 }

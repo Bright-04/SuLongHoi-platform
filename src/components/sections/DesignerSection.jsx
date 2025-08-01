@@ -31,6 +31,21 @@ const DesignerSection = () => {
 									<span className="feature-icon">📱</span>
 									<span>Works on all devices</span>
 								</div>
+
+				<div className="designer-interface designer-interface--under-construction">
+					<div className="designer-sidebar">
+						<h3>Customize Your Lion</h3>
+						<div className="prompt-input">
+							<textarea placeholder="Describe your vision..."></textarea>
+						</div>
+						<div className="sliders">
+							<div className="slider-group">
+								<label>Color Theme</label>
+								<input type="range" className="slider" />
+							</div>
+							<div className="slider-group">
+								<label>Horn Style</label>
+								<input type="range" className="slider" />
 							</div>
 
 							<Link to="/designer" className="cta-button">
@@ -66,6 +81,14 @@ const DesignerSection = () => {
 						<button className="action-btn secondary">
 							📖 Learn More
 						</button>
+					</div>
+				</div>
+
+				<div className="under-construction-overlay">
+					<div className="under-construction-message">
+						<div className="construction-icon">🚧</div>
+						<h3>Under Construction</h3>
+						<p>Our team is working hard to bring you an amazing 3D Lion Head Designer experience. Please check back soon!</p>
 					</div>
 				</div>
 			</div>
