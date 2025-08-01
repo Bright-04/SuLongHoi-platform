@@ -4,7 +4,7 @@ const LearnSection = () => {
 	return (
 		<section id="learn" className="learn-section">
 			<div className="container">
-				<h2 className="section-title">Học múa Lân từ gốc</h2>
+				<h2 className="section-title">Học múa Lân cùng SHL!</h2>
 
 				<div className="course-filters">
 					<button className="filter-btn active">All</button>

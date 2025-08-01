@@ -6,7 +6,7 @@ const DesignerSection = () => {
 			<div className="designer-container">
 				<h2 className="section-title">3D Lion Head Designer</h2>
 
-				<div className="designer-interface">
+				<div className="designer-interface designer-interface--under-construction">
 					<div className="designer-sidebar">
 						<h3>Customize Your Lion</h3>
 						<div className="prompt-input">
@@ -49,6 +49,14 @@ const DesignerSection = () => {
 							<button className="export-btn">Share</button>
 							<button className="export-btn">Save</button>
 						</div>
+					</div>
+				</div>
+
+				<div className="under-construction-overlay">
+					<div className="under-construction-message">
+						<div className="construction-icon">🚧</div>
+						<h3>Under Construction</h3>
+						<p>Our team is working hard to bring you an amazing 3D Lion Head Designer experience. Please check back soon!</p>
 					</div>
 				</div>
 			</div>

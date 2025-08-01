@@ -11,11 +11,16 @@
 /* Section Styles */
 @import "./sections/HeroSection.css";
 @import "./sections/KnowledgeSection.css";
+@import "./sections/KnowledgePreview.css";
 @import "./sections/DesignerSection.css";
 @import "./sections/LearnSection.css";
 @import "./sections/EventsSection.css";
 @import "./sections/CommunitySection.css";
 @import "./sections/CompetitionsSection.css";
+
+/* Page Styles */
+@import "./pages/KnowledgePage.css";
+@import "./pages/ArticlePage.css";
 
 /* Home Page Specific Styles */
 @import "./Home.css";
