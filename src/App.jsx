@@ -1,4 +1,5 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import LionDesigner from "./pages/LionDesigner";
 import React, { Suspense } from "react";
 import Home from "./pages/Home";
@@ -11,6 +12,7 @@ function App() {
 	return (
 		<Router>
 			<ProgressBar />
+			<Analytics />
 			<Suspense fallback={<Loading message="Loading SuLongHoi Platform..." />}>
 				<Routes>
 					<Route path="/design" element={<LionDesigner />} />
