@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const CommunitySection = () => {
 	const [activeCategory, setActiveCategory] = useState("all");
 	const [showAllStories, setShowAllStories] = useState(false);
-	const [showAllPosts, setShowAllPosts] = useState(false);
 
 	const marketplaceProducts = [
 		{
@@ -165,7 +164,7 @@ const CommunitySection = () => {
 
 	const filteredProducts = activeCategory === "all" ? marketplaceProducts : marketplaceProducts.filter((product) => product.category === activeCategory);
 	const displayedStories = showAllStories ? stories : stories.slice(0, 2);
-	const displayedPosts = showAllPosts ? storyWallPosts : storyWallPosts.slice(0, 3);
+	const displayedPosts = storyWallPosts.slice(0, 3); // Always show only 3 posts
 
 	const renderStars = (rating) => {
 		return "⭐".repeat(rating) + "☆".repeat(5 - rating);
@@ -290,13 +289,6 @@ const CommunitySection = () => {
 									</div>
 								))}
 							</div>
-							{storyWallPosts.length > 3 && (
-								<div className="show-more-container">
-									<button className="show-more-btn" onClick={() => setShowAllPosts(!showAllPosts)}>
-										{showAllPosts ? "Show Less" : "Show More"}
-									</button>
-								</div>
-							)}
 
 							<div className="motivation-quotes">
 								<h4>Daily Inspiration</h4>

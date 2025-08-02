@@ -341,8 +341,6 @@
 	flex-direction: column;
 	gap: var(--spacing-md);
 	margin-bottom: var(--spacing-xl);
-	max-height: 400px;
-	overflow-y: auto;
 }
 
 .wall-post {
