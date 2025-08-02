@@ -106,7 +106,7 @@ const ImageLibrarySection = () => {
 	};
 
 	return (
-		<section ref={sectionRef} className="image-library-section">
+		<section id="image-library" ref={sectionRef} className="image-library-section">
 			<div className="container">
 				{/* Section Header */}
 				<motion.div className="section-header" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}>

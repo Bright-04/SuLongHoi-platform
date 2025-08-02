@@ -82,7 +82,7 @@ const TimelineHistorySection = () => {
 	};
 
 	return (
-		<section ref={sectionRef} className="timeline-history-section">
+		<section id="timeline-history" ref={sectionRef} className="timeline-history-section">
 			<div className="container">
 				{/* Section Header */}
 				<motion.div className="section-header" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}>

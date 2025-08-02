@@ -70,28 +70,28 @@ const Navbar = () => {
 					<button className="nav-link" onClick={() => scrollToSection("home")}>
 						Home
 					</button>
-					<Link to="/designer" className={`nav-link ${isDesignerPage ? "active" : ""}`} onClick={handleLinkClick}>
+					<button className="nav-link" onClick={() => scrollToSection("designer")}>
 						3D Designer
-					</Link>
+					</button>
 					<button className="nav-link" onClick={() => scrollToSection("events")}>
 						Events
 					</button>
 					<button className="nav-link" onClick={() => scrollToSection("storytelling")}>
 						Story
 					</button>
-					<button className="nav-link" onClick={() => scrollToSection("timeline")}>
+					<button className="nav-link" onClick={() => scrollToSection("timeline-history")}>
 						History
 					</button>
-					<button className="nav-link" onClick={() => scrollToSection("performance")}>
+					<button className="nav-link" onClick={() => scrollToSection("performance-board")}>
 						Leaderboard
 					</button>
 					<button className="nav-link" onClick={() => scrollToSection("community")}>
 						Community
 					</button>
-					<button className="nav-link" onClick={() => scrollToSection("library")}>
+					<button className="nav-link" onClick={() => scrollToSection("image-library")}>
 						Library
 					</button>
-					<button className="nav-link" onClick={() => scrollToSection("academy")}>
+					<button className="nav-link" onClick={() => scrollToSection("knowledge")}>
 						Academy
 					</button>
 					<button className="nav-link" onClick={() => scrollToSection("competitions")}>

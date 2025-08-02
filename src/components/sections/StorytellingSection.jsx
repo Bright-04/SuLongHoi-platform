@@ -68,7 +68,7 @@ const StorytellingSection = () => {
 	}, [isInView]);
 
 	return (
-		<section ref={sectionRef} className="storytelling-section">
+		<section id="storytelling" ref={sectionRef} className="storytelling-section">
 			<div className="container">
 				{/* Section Header */}
 				<motion.div className="section-header" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
