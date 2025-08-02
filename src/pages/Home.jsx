@@ -16,15 +16,15 @@ const Home = () => {
 	return (
 		<>
 			<HeroSection />
+			<DesignerSection />
+			<EventsSection />
 			<StorytellingSection />
-			<ImageLibrarySection />
 			<TimelineHistorySection />
 			<PerformanceBoardSection />
-			<KnowledgePreview />
-			<DesignerSection />
-			<LearnSection />
-			<EventsSection />
 			<CommunitySection />
+			<ImageLibrarySection />
+			<KnowledgePreview />
+			<LearnSection />
 			<CompetitionsSection />
 		</>
 	);
