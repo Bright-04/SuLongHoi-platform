@@ -98,7 +98,7 @@ const StorytellingSection = () => {
 									</button>
 								</div>
 							</div>
-							
+
 							<div className="team-stats">
 								<div className="stat-item">
 									<span className="stat-number">{currentStory.members}</span>
