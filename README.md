@@ -23,13 +23,14 @@
   **Development Server**: `npm run dev` → `http://localhost:5173`  
   **Build Status**: ✅ Stable  
   **3D Designer**: ✅ Fully Functional  
-  **Knowledge System**: ✅ Framework Complete  
+  **Knowledge System**: ✅ Complete with Sample Content  
   
   ---
   
   [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
   [![Three.js](https://img.shields.io/badge/Three.js-0.179.0-000000?style=for-the-badge&logo=three.js)](https://threejs.org/)
   [![Vite](https://img.shields.io/badge/Vite-4.0.0-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+  [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.23.12-0055FF?style=for-the-badge&logo=framer)](https://www.framer.com/motion/)
   [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 </div>te](https://img.shields.io/badge/Vite-4.0.0-646CFF.svg)](https://vitejs.dev/)
   [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -75,34 +76,50 @@ Sư Long Hội is an innovative platform that bridges the gap between traditiona
 -   **Responsive Design**: Mobile-optimized interface with modern animations
 -   **Professional UI**: Consistent design system with Vietnamese cultural elements
 
-#### 📚 **Knowledge Library Foundation** (Complete Structure)
+#### 📚 **Knowledge Library System** (Complete)
 
 -   **Article System**: Complete article browsing with categories and filtering
 -   **Search & Filter**: Advanced filtering by category, difficulty, and content type
 -   **Content Categories**: History, Techniques, Music, Culture, Costumes, Stories
--   **Rich Content Display**: Support for articles, tutorials, guides, and stories
+-   **Sample Content**: 6 comprehensive articles covering various aspects of Vietnamese lion dance
+-   **Article Reader**: Full-featured article reading experience with table of contents
+-   **Rich Content Display**: Support for articles, tutorials, guides, and stories with metadata
+
+#### 🎨 **Image Library** (Complete)
+
+-   **Gallery System**: Interactive image gallery with category filtering
+-   **Lightbox View**: Full-screen image viewing with detailed information
+-   **Image Categories**: Performances, Costumes, Teams, Events
+-   **Sample Images**: Curated collection of lion dance imagery
+
+#### 🌐 **Community Sections** (UI Complete)
+
+-   **Marketplace**: Product showcase for lion dance equipment and services
+-   **Story Wall**: Community posts and user-generated content display
+-   **Cultural Stories**: Featured documentaries and personal journeys
 
 ### 🚧 **In Development**
 
-#### 📖 **Content Population** (Partial)
+#### 🎓 **Interactive Learning Features** (Framework Ready)
 
--   **Sample Articles**: 6 demo articles with Vietnamese cultural content
--   **Content Management**: Framework ready for additional articles and tutorials
--   **Media Integration**: Structure prepared for video tutorials and audio guides
-
-#### 🎓 **Learning Platform** (Framework Ready)
-
--   **Section Placeholders**: Learn, Events, Community, and Competitions sections
--   **UI Components**: Ready for interactive learning content integration
+-   **Learning Paths**: Structure ready for progressive skill building
+-   **Video Integration**: Framework prepared for tutorial videos
+-   **Audio Integration**: Structure for traditional music patterns and pronunciation guides
 
 ### 📋 **Planned Features**
 
-#### 🌐 **Community Features** (Future Phase)
+#### 🔐 **User System** (Future Phase)
 
 -   User authentication and profiles
--   Community marketplace for authentic costumes
+-   Personal design galleries and progress tracking
+-   Bookmarking and favorites system
+
+#### 🌐 **Enhanced Community Features** (Future Phase)
+
+-   Real-time community interaction
+-   User marketplace for buying/selling authentic costumes
+-   Performance booking and workshop scheduling
 -   Social sharing and cultural story contributions
--   Performance showcase platform
 
 #### 🏆 **Events & Competitions** (Future Phase)
 
@@ -127,10 +144,15 @@ Sư Long Hội is an innovative platform that bridges the gap between traditiona
 -   **@react-three/fiber 8.15.13** - React renderer for Three.js
 -   **@react-three/drei 9.122.0** - Useful helpers and components for React Three Fiber
 
+### **Animation & UI Enhancement**
+
+-   **Framer Motion 12.23.12** - Advanced animations and motion graphics
+-   **Custom CSS** - Modern design system with responsive layouts
+
 ### **State Management & Utilities**
 
 -   **Zustand 5.0.7** - Lightweight state management for design controls
--   **Custom CSS** - Modern design system with responsive layouts and animations
+-   **@vercel/analytics 1.5.0** - Web analytics and performance tracking
 
 ### **Architecture & Performance**
 
@@ -138,6 +160,7 @@ Sư Long Hội is an innovative platform that bridges the gap between traditiona
 -   **Responsive Design** optimized for desktop and mobile devices
 -   **Hot Module Replacement** for instant development feedback
 -   **Optimized 3D Assets** with efficient model loading and material mapping
+-   **HashRouter** for GitHub Pages compatibility
 
 ---
 
@@ -145,15 +168,19 @@ Sư Long Hội is an innovative platform that bridges the gap between traditiona
 
 ```
 SuLongHoi-platform/
+├── public/                    # Static assets served directly
+│   └── assets/               # Public image assets
+│       └── images/          # Illustration files and mockups
 ├── src/
 │   ├── components/              # Reusable UI components
-│   │   ├── common/             # Button, Card, Loading, SectionTitle
+│   │   ├── common/             # Button, Card, Loading, SectionTitle, ProgressBar
 │   │   ├── layout/             # Navbar, Footer, Layout wrapper
 │   │   ├── sections/           # Homepage sections (Hero, Knowledge, etc.)
 │   │   └── designer/           # 3D designer components
 │   │       ├── LionDesigner3D.jsx    # Main 3D canvas and model
 │   │       ├── DesignControls.jsx    # UI controls for customization
 │   │       ├── ModelLoader.jsx       # 3D model loading with error handling
+│   │       ├── ModelErrorBoundary.jsx # Error boundary for 3D components
 │   │       └── ExportModal.jsx       # Design export functionality
 │   ├── pages/                  # Main application pages
 │   │   ├── Home.jsx           # Landing page with all sections
@@ -162,26 +189,30 @@ SuLongHoi-platform/
 │   │   └── ArticlePage.jsx    # Individual article reader
 │   ├── store/                  # State management
 │   │   └── lionDesignStore.js # Zustand store for 3D designer state
+│   ├── hooks/                 # Custom React hooks
+│   │   ├── useNavigationLoading.js # Loading states for navigation
+│   │   ├── useRouteLoading.js      # Route transition management
+│   │   ├── useScrollManager.js     # Scroll behavior and animations
+│   │   └── useScrollToTop.js       # Auto-scroll to top functionality
 │   ├── styles/                 # Organized CSS architecture
 │   │   ├── base/              # Variables, global styles, mobile optimizations
 │   │   ├── components/        # Component-specific styles
 │   │   ├── layout/            # Layout component styles
 │   │   ├── pages/             # Page-specific styles
 │   │   ├── sections/          # Section component styles
-│   │   └── LionDesigner.css   # Complete 3D designer styling
+│   │   ├── Home.css           # Homepage styling
+│   │   ├── LionDesigner.css   # Complete 3D designer styling
+│   │   └── main.css           # Global styles and imports
 │   ├── assets/                # Static assets
-│   │   └── images/           # Logos, illustrations, cultural images
-│   ├── hooks/                 # Custom React hooks
-│   │   ├── useNavigationLoading.js # Loading states for navigation
-│   │   ├── useRouteLoading.js      # Route transition management
-│   │   └── useScrollManager.js     # Scroll behavior and animations
-│   └── utils/                 # Constants and helper functions
-│       ├── constants.js       # Application constants
-│       ├── helpers.js         # Utility functions
-│       └── navigation.js      # Navigation helpers
-├── public/                    # Static assets served directly
-│   └── models/               # 3D model files
-│       └── lan-su-head.glb   # Authentic Lân Sư head 3D model
+│   │   ├── images/           # Logos, illustrations, cultural images
+│   │   └── models/           # 3D model files
+│   │       └── lan-su-head.glb # Authentic Lân Sư head 3D model
+│   ├── utils/                 # Constants and helper functions
+│   │   ├── constants.js       # Application constants and navigation items
+│   │   ├── helpers.js         # Utility functions
+│   │   └── navigation.js      # Navigation helpers
+│   ├── App.jsx               # Main application component with routing
+│   └── main.jsx              # Application entry point
 ├── package.json              # Dependencies and scripts
 ├── vite.config.js           # Vite configuration
 └── README.md                # Project documentation
@@ -232,43 +263,52 @@ SuLongHoi-platform/
 1. **Homepage** - Experience the cultural showcase and navigation
 2. **3D Designer** - Click "Design Your Own Lion Head" to access the 3D designer
     - Customize colors: fur, mane, and eye colors
-    - Adjust textures and patterns
-    - Export your design as PNG/JPEG
-3. **Knowledge Library** - Browse articles about Vietnamese lion dance culture
-    - Filter by category and difficulty
-    - Read cultural stories and techniques
+    - Rotate, zoom, and pan the 3D model
+    - Export your design as PNG/JPEG with watermark
+3. **Knowledge Library** - Browse 6 sample articles about Vietnamese lion dance culture
+    - Filter by category (History, Techniques, Music, Culture, Costumes, Stories)
+    - Filter by difficulty level (Beginner, Intermediate, Advanced)
+    - Read full articles with rich content and metadata
+4. **Image Gallery** - Explore the visual collection of lion dance imagery
+    - Browse by category (Performances, Costumes, Teams, Events)
+    - View images in full-screen lightbox mode
 
 ---
 
 ## 🎯 Development Roadmap
 
-### ✅ **Phase 1: Foundation** (Completed - December 2024)
+### ✅ **Phase 1: Foundation** (Completed - August 2025)
 
--   [x] **Core Platform Architecture** - React + Vite setup with routing
+-   [x] **Core Platform Architecture** - React + Vite setup with HashRouter for deployment
 -   [x] **3D Design System** - Complete Lân Sư head designer with Three.js integration
--   [x] **Knowledge Library Framework** - Article system with search and categorization
+-   [x] **Knowledge Library System** - Full article system with search, filtering, and content
+-   [x] **Image Gallery** - Interactive gallery with lightbox and category filtering
 -   [x] **Responsive UI/UX** - Mobile-optimized design with Vietnamese cultural elements
--   [x] **Component Architecture** - Reusable components and design system
+-   [x] **Component Architecture** - Comprehensive reusable components and design system
 -   [x] **3D Model Integration** - Authentic Lân Sư head model with material customization
+-   [x] **Animation System** - Framer Motion animations throughout the platform
+-   [x] **Community UI** - Complete marketplace and community section interfaces
 
-### 🚧 **Phase 2: Content & Features** (In Progress - January 2025)
+### 🚧 **Phase 2: Enhanced Features** (In Progress - August 2025)
 
--   [x] **3D Design Controls** - Advanced customization options for colors, textures, patterns
--   [x] **Export Functionality** - High-quality image export with design metadata
--   [ ] **Content Population** - Additional articles, tutorials, and cultural stories
+-   [x] **Advanced 3D Controls** - Export functionality with watermarks and metadata
+-   [x] **Content Library** - 6 comprehensive sample articles covering lion dance culture
+-   [x] **Visual Gallery** - Curated image collection with detailed information
 -   [ ] **Video Integration** - Embedded video tutorials and cultural documentaries
 -   [ ] **Audio Integration** - Traditional music patterns and pronunciation guides
--   [ ] **Mobile App** - React Native version for mobile devices
+-   [ ] **Search Enhancement** - Advanced search across all content types
+-   [ ] **Content Management** - Admin interface for content updates
 
-### 🔮 **Phase 3: Community & Interaction** (Planned - Q2 2025)
+### 🔮 **Phase 3: Community & Interaction** (Planned - Q3 2025)
 
 -   [ ] **User Authentication** - Firebase/Auth0 integration for user accounts
--   [ ] **Community Features** - User profiles, comments, and cultural story sharing
--   [ ] **Marketplace Foundation** - Framework for costume and accessory trading
+-   [ ] **Interactive Community** - Real-time user interactions and content sharing
+-   [ ] **Marketplace Backend** - Functional marketplace for costume and accessory trading
 -   [ ] **Learning Progress** - Gamified learning paths with achievement tracking
 -   [ ] **Multilingual Support** - Vietnamese, English, and Chinese language options
+-   [ ] **Mobile Application** - React Native mobile app for iOS and Android
 
-### 🚀 **Phase 4: Advanced Features** (Future - Q3-Q4 2025)
+### 🚀 **Phase 4: Advanced Features** (Future - Q4 2025+)
 
 -   [ ] **Live Streaming** - Integration for cultural events and competitions
 -   [ ] **VR/AR Experiences** - Virtual reality training and augmented reality previews
@@ -284,15 +324,19 @@ SuLongHoi-platform/
 
 -   **Authentic 3D Model** - High-quality Lân Sư head model preserving traditional proportions
 -   **Cultural Accuracy** - Design elements based on authentic Vietnamese lion dance traditions
--   **Educational Framework** - Comprehensive article categorization system for cultural learning
+-   **Comprehensive Content** - 6 detailed articles covering history, techniques, and cultural context
+-   **Visual Documentation** - Curated image library showcasing performances and traditions
+-   **Interactive Design** - 3D customization tool for exploring traditional costume elements
 -   **Accessibility** - Web-based platform making Vietnamese culture globally accessible
 
 ### 📊 **Current Platform Metrics**
 
 -   **6 Cultural Articles** - Covering history, techniques, music, and regional variations
--   **150+ Design Combinations** - Possible color and texture combinations in 3D designer
--   **3D Model Integration** - Real-time material manipulation and export capabilities
--   **Cross-platform Compatibility** - Responsive design for desktop and mobile devices
+-   **8+ Gallery Images** - Professional photography of performances and cultural elements
+-   **Complete UI Sections** - Homepage, Knowledge Library, 3D Designer, Image Gallery, Community
+-   **Advanced 3D Features** - Real-time material manipulation and high-quality export capabilities
+-   **Responsive Design** - Optimized for desktop, tablet, and mobile devices
+-   **Modern Animations** - Framer Motion integration for enhanced user experience
 
 ### 🎯 **Educational Impact Goals**
 
@@ -348,7 +392,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact & Support
 
--   **Website**: [SuLongHoi Platform](https://sulonghoi.com)
+-   **Website**: [SuLongHoi Platform](https://bright-04.github.io/SuLongHoi-platform/)
+-   **Repository**: [GitHub Repository](https://github.com/Bright-04/SuLongHoi-platform)
 -   **Email**: contact@sulonghoi.com
 -   **GitHub**: [@Bright-04](https://github.com/Bright-04)
 
