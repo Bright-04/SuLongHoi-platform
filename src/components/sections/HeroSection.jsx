@@ -19,7 +19,10 @@ const HeroSection = () => {
 			<div className="hero-overlay">
 				<div className="hero-content">
 					<div className="hero-logo">
-						<h1>Sư Long Hội</h1>
+						<h1>
+							<span className="title-vietnamese">Sư Long Hội</span>
+							<span className="title-english">The Lion & Dragon Union</span>
+						</h1>
 					</div>
 
 					<p className="hero-tagline">"Reviving Traditions. Inspiring Generations."</p>
