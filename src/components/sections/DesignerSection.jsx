@@ -5,13 +5,14 @@ const DesignerSection = () => {
 	return (
 		<section id="designer" className="designer-section">
 			<div className="designer-container">
-				{/* Nửa trên: Title và Subtitle */}
+				{/* Compact Header */}
 				<div className="designer-header">
-					<h2 className="section-title">Digital Lion Design Tool</h2>
-					<p className="section-subtitle">Create Your Own Lion Head</p>
+					<div className="header-content">
+						<h2 className="section-title">🎨 Digital Lion Design Tool</h2>
+					</div>
 				</div>
 
-				{/* Nửa dưới: Content với designer-preview và actions trong 1 hàng */}
+				{/* Content with designer-preview and actions in one row */}
 				<div className="designer-content">
 					<div className="designer-preview">
 						<div className="preview-content">
