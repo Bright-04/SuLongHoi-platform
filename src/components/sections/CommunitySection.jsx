@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
 const CommunitySection = () => {
-	const [activeTab, setActiveTab] = useState("marketplace");
 	const [activeCategory, setActiveCategory] = useState("all");
+	const [showAllStories, setShowAllStories] = useState(false);
+	const [showAllPosts, setShowAllPosts] = useState(false);
 
 	const marketplaceProducts = [
 		{
 			id: 1,
-			image: "🦁",
+			image: "/src/assets/images/illustrations/mockup(1).jpg",
 			title: "Traditional Red Lion Head",
 			seller: "Master Artisan Le",
 			rating: 5,
@@ -17,7 +18,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 2,
-			image: "🦁",
+			image: "/src/assets/images/illustrations/mockup(8).JPG",
 			title: "Golden Dragon Style Lion Head",
 			seller: "Dragon Arts Studio",
 			rating: 5,
@@ -26,7 +27,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 3,
-			image: "👘",
+			image: "/src/assets/images/illustrations/mockup(9).jpg",
 			title: "Silk Lion Costume Set",
 			seller: "Traditional Crafts Co.",
 			rating: 5,
@@ -35,7 +36,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 4,
-			image: "👘",
+			image: "/src/assets/images/illustrations/mockup(10).JPG",
 			title: "Premium Performance Outfit",
 			seller: "Heritage Textiles",
 			rating: 4,
@@ -44,7 +45,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 5,
-			image: "🥁",
+			image: "/src/assets/images/illustrations/mockup(11).JPG",
 			title: "Traditional Lion Dance Drums",
 			seller: "Rhythm Masters",
 			rating: 5,
@@ -53,7 +54,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 6,
-			image: "🔔",
+			image: "/src/assets/images/illustrations/mockup(12).JPG",
 			title: "Ceremonial Bells Set",
 			seller: "Sound of Heritage",
 			rating: 4,
@@ -62,7 +63,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 7,
-			image: "🎭",
+			image: "/src/assets/images/illustrations/mockup(13).JPG",
 			title: "Lion Dance Performance - 2 Hours",
 			seller: "Master Chen's Troupe",
 			rating: 5,
@@ -71,7 +72,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 8,
-			image: "🎪",
+			image: "/src/assets/images/illustrations/collage1.png",
 			title: "Workshop & Performance Package",
 			seller: "Cultural Arts Academy",
 			rating: 5,
@@ -130,7 +131,7 @@ const CommunitySection = () => {
 	const stories = [
 		{
 			id: 1,
-			image: "📸",
+			image: "/src/assets/images/illustrations/collage2.png",
 			title: "Behind the Scenes: Master Craftsman",
 			description: "Follow the journey of creating a lion head from bamboo to finished masterpiece...",
 			type: "documentary",
@@ -138,7 +139,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 2,
-			image: "🎬",
+			image: "/src/assets/images/illustrations/mockup(1).WEBP",
 			title: "Young Performer's Journey",
 			description: "A teenager's path to mastering the art and finding their cultural identity...",
 			type: "personal-story",
@@ -146,7 +147,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 3,
-			image: "🏆",
+			image: "/src/assets/images/illustrations/preview-site.png",
 			title: "Championship Dreams",
 			description: "Follow three teams as they prepare for the international lion dance competition...",
 			type: "competition",
@@ -154,7 +155,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 4,
-			image: "👴",
+			image: "/src/assets/images/illustrations/mockup(10).JPG",
 			title: "Wisdom of the Masters",
 			description: "Elder masters share their knowledge and the deep philosophy behind lion dance...",
 			type: "wisdom",
@@ -163,6 +164,8 @@ const CommunitySection = () => {
 	];
 
 	const filteredProducts = activeCategory === "all" ? marketplaceProducts : marketplaceProducts.filter((product) => product.category === activeCategory);
+	const displayedStories = showAllStories ? stories : stories.slice(0, 2);
+	const displayedPosts = showAllPosts ? storyWallPosts : storyWallPosts.slice(0, 3);
 
 	const renderStars = (rating) => {
 		return "⭐".repeat(rating) + "☆".repeat(5 - rating);
@@ -173,132 +176,140 @@ const CommunitySection = () => {
 			<div className="container">
 				<h2 className="section-title">Community & Marketplace</h2>
 
-				<div className="community-tabs">
-					<button className={`community-tab ${activeTab === "marketplace" ? "active" : ""}`} onClick={() => setActiveTab("marketplace")}>
-						Marketplace
-					</button>
-					<button className={`community-tab ${activeTab === "stories" ? "active" : ""}`} onClick={() => setActiveTab("stories")}>
-						Stories
-					</button>
-					<button className={`community-tab ${activeTab === "community" ? "active" : ""}`} onClick={() => setActiveTab("community")}>
-						Community Wall
-					</button>
-				</div>
+				<div className="community-grid">
+					{/* Marketplace Column */}
+					<div className="marketplace-column">
+						<div className="marketplace">
+							<div className="marketplace-header">
+								<h3>Discover Authentic Lion Dance Items</h3>
+								<p>Support traditional craftsmen and performers worldwide</p>
+							</div>
 
-				{/* Marketplace Tab */}
-				{activeTab === "marketplace" && (
-					<div className="marketplace">
-						<div className="marketplace-header">
-							<h3>Discover Authentic Lion Dance Items</h3>
-							<p>Support traditional craftsmen and performers worldwide</p>
-						</div>
+							<div className="marketplace-categories">
+								<button className={`category-btn ${activeCategory === "all" ? "active" : ""}`} onClick={() => setActiveCategory("all")}>
+									All Items
+								</button>
+								<button className={`category-btn ${activeCategory === "heads" ? "active" : ""}`} onClick={() => setActiveCategory("heads")}>
+									Lion Heads
+								</button>
+								<button className={`category-btn ${activeCategory === "costumes" ? "active" : ""}`} onClick={() => setActiveCategory("costumes")}>
+									Costumes
+								</button>
+								<button className={`category-btn ${activeCategory === "accessories" ? "active" : ""}`} onClick={() => setActiveCategory("accessories")}>
+									Accessories
+								</button>
+								<button className={`category-btn ${activeCategory === "booking" ? "active" : ""}`} onClick={() => setActiveCategory("booking")}>
+									Performance Booking
+								</button>
+							</div>
 
-						<div className="marketplace-categories">
-							<button className={`category-btn ${activeCategory === "all" ? "active" : ""}`} onClick={() => setActiveCategory("all")}>
-								All Items
-							</button>
-							<button className={`category-btn ${activeCategory === "heads" ? "active" : ""}`} onClick={() => setActiveCategory("heads")}>
-								Lion Heads
-							</button>
-							<button className={`category-btn ${activeCategory === "costumes" ? "active" : ""}`} onClick={() => setActiveCategory("costumes")}>
-								Costumes
-							</button>
-							<button className={`category-btn ${activeCategory === "accessories" ? "active" : ""}`} onClick={() => setActiveCategory("accessories")}>
-								Accessories
-							</button>
-							<button className={`category-btn ${activeCategory === "booking" ? "active" : ""}`} onClick={() => setActiveCategory("booking")}>
-								Performance Booking
-							</button>
-						</div>
-
-						<div className="marketplace-grid">
-							{filteredProducts.map((product) => (
-								<div key={product.id} className={`product-card ${product.featured ? "featured" : ""}`}>
-									{product.featured && <div className="featured-badge">Featured</div>}
-									<div className="product-image">{product.image}</div>
-									<h4>{product.title}</h4>
-									<div className="seller-info">
-										<span>By {product.seller}</span>
-										<div className="rating">{renderStars(product.rating)}</div>
-									</div>
-									<div className="price">${product.price}</div>
-									<div className="product-actions">
-										<button className="btn-primary">View Details</button>
-										<button className="btn-secondary">Add to Cart</button>
-									</div>
-								</div>
-							))}
-						</div>
-					</div>
-				)}
-
-				{/* Stories Tab */}
-				{activeTab === "stories" && (
-					<div className="community-stories">
-						<div className="stories-header">
-							<h3>Kể chuyện – Truyền nhân</h3>
-							<p>Inspiring stories from our community</p>
-						</div>
-						<div className="stories-gallery">
-							{stories.map((story) => (
-								<div key={story.id} className="story-card">
-									<div className="story-image">{story.image}</div>
-									<div className="story-meta">
-										<span className="story-type">{story.type}</span>
-										<span className="story-duration">{story.duration}</span>
-									</div>
-									<h4>{story.title}</h4>
-									<p>{story.description}</p>
-									<button className="story-btn">Watch Story</button>
-								</div>
-							))}
-						</div>
-					</div>
-				)}
-
-				{/* Community Wall Tab */}
-				{activeTab === "community" && (
-					<div className="community-wall">
-						<div className="wall-header">
-							<h3>Community Motivation Wall</h3>
-							<p>Share your journey, inspire others</p>
-							<button className="post-btn">Share Your Story</button>
-						</div>
-
-						<div className="story-wall">
-							{storyWallPosts.map((post) => (
-								<div key={post.id} className={`wall-post ${post.type}`}>
-									<div className="post-header">
-										<div className="author-info">
-											<span className="avatar">{post.avatar}</span>
-											<div>
-												<span className="author-name">{post.author}</span>
-												<span className="post-time">{post.time}</span>
-											</div>
+							<div className="marketplace-grid">
+								{filteredProducts.slice(0, 4).map((product) => (
+									<div key={product.id} className={`product-card ${product.featured ? "featured" : ""}`}>
+										{product.featured && <div className="featured-badge">Featured</div>}
+										<div className="product-image">
+											<img src={product.image} alt={product.title} />
 										</div>
-										<span className={`post-type-badge ${post.type}`}>{post.type.replace("-", " ")}</span>
+										<h4>{product.title}</h4>
+										<div className="seller-info">
+											<span>By {product.seller}</span>
+											<div className="rating">{renderStars(product.rating)}</div>
+										</div>
+										<div className="price">${product.price}</div>
+										<div className="product-actions">
+											<button className="btn-primary">View Details</button>
+											<button className="btn-secondary">Add to Cart</button>
+										</div>
 									</div>
-									<div className="post-content">{post.content}</div>
-									<div className="post-actions">
-										<button className="action-btn like">❤️ {post.likes}</button>
-										<button className="action-btn comment">💬 {post.comments}</button>
-										<button className="action-btn share">🔗 Share</button>
-									</div>
-								</div>
-							))}
+								))}
+							</div>
 						</div>
+					</div>
 
-						<div className="motivation-quotes">
-							<h4>Daily Inspiration</h4>
-							<div className="quote-carousel">
-								<div className="quote-card">
-									<p>"The lion dance is not just movement, it's the heartbeat of our culture."</p>
-									<span>- Master Li Wei</span>
+					{/* Stories Column */}
+					<div className="stories-column">
+						<div className="community-stories">
+							<div className="stories-header">
+								<h3>Kể chuyện – Truyền nhân</h3>
+								<p>Inspiring stories from our community</p>
+							</div>
+							<div className="stories-gallery">
+								{displayedStories.map((story) => (
+									<div key={story.id} className="story-card">
+										<div className="story-image">
+											<img src={story.image} alt={story.title} />
+										</div>
+										<div className="story-meta">
+											<span className="story-type">{story.type}</span>
+											<span className="story-duration">{story.duration}</span>
+										</div>
+										<h4>{story.title}</h4>
+										<p>{story.description}</p>
+										<button className="story-btn">Watch Story</button>
+									</div>
+								))}
+							</div>
+							{stories.length > 2 && (
+								<div className="show-more-container">
+									<button className="show-more-btn" onClick={() => setShowAllStories(!showAllStories)}>
+										{showAllStories ? "Show Less" : "Show More"}
+									</button>
+								</div>
+							)}
+						</div>
+					</div>
+
+					{/* Community Wall Column */}
+					<div className="community-column">
+						<div className="community-wall">
+							<div className="wall-header">
+								<h3>Community Motivation Wall</h3>
+								<p>Share your journey, inspire others</p>
+								<button className="post-btn">Share Your Story</button>
+							</div>
+
+							<div className="story-wall">
+								{displayedPosts.map((post) => (
+									<div key={post.id} className={`wall-post ${post.type}`}>
+										<div className="post-header">
+											<div className="author-info">
+												<span className="avatar">{post.avatar}</span>
+												<div>
+													<span className="author-name">{post.author}</span>
+													<span className="post-time">{post.time}</span>
+												</div>
+											</div>
+											<span className={`post-type-badge ${post.type}`}>{post.type.replace("-", " ")}</span>
+										</div>
+										<div className="post-content">{post.content}</div>
+										<div className="post-actions">
+											<button className="action-btn like">❤️ {post.likes}</button>
+											<button className="action-btn comment">💬 {post.comments}</button>
+											<button className="action-btn share">🔗 Share</button>
+										</div>
+									</div>
+								))}
+							</div>
+							{storyWallPosts.length > 3 && (
+								<div className="show-more-container">
+									<button className="show-more-btn" onClick={() => setShowAllPosts(!showAllPosts)}>
+										{showAllPosts ? "Show Less" : "Show More"}
+									</button>
+								</div>
+							)}
+
+							<div className="motivation-quotes">
+								<h4>Daily Inspiration</h4>
+								<div className="quote-carousel">
+									<div className="quote-card">
+										<p>"The lion dance is not just movement, it's the heartbeat of our culture."</p>
+										<span>- Master Li Wei</span>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				)}
+				</div>
 			</div>
 		</section>
 	);
