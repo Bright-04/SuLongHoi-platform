@@ -11,63 +11,63 @@ const TimelineHistorySection = () => {
 	const timelineData = [
 		{
 			id: 1,
-			period: "Thế kỷ 17-18",
-			title: "Khởi nguồn văn hóa",
-			description: "Nghệ thuật múa lân sư được du nhập vào Việt Nam từ Trung Quốc, chủ yếu thông qua các cộng đồng người Hoa định cư tại các thành phố lớn.",
-			events: ["Du nhập từ Trung Quốc", "Phát triển trong cộng đồng người Hoa", "Hình thành các đội lân đầu tiên"],
+			period: "17th-18th Century",
+			title: "Cultural Origins",
+			description: "Lion dance art was introduced to Vietnam from China, primarily through Chinese communities settling in major cities.",
+			events: ["Introduction from China", "Development in Chinese communities", "Formation of first lion dance teams"],
 			image: "/src/assets/images/illustrations/collage1.png",
 			icon: "🏛️",
-			location: "Các thành phố lớn",
+			location: "Major cities",
 		},
 		{
 			id: 2,
-			period: "Thế kỷ 19",
-			title: "Phát triển truyền thống",
-			description: "Nghệ thuật múa lân sư bắt đầu được Việt hóa và phát triển thành một phần không thể thiếu của văn hóa dân gian Việt Nam.",
-			events: ["Việt hóa nghệ thuật múa lân", "Phát triển các kỹ thuật riêng", "Trở thành văn hóa dân gian"],
+			period: "19th Century",
+			title: "Traditional Development",
+			description: "Lion dance art began to be Vietnamized and developed into an integral part of Vietnamese folk culture.",
+			events: ["Vietnamization of lion dance art", "Development of unique techniques", "Becoming folk culture"],
 			image: "/src/assets/images/illustrations/mockup(1).jpg",
 			icon: "🎭",
-			location: "Toàn quốc",
+			location: "Nationwide",
 		},
 		{
 			id: 3,
 			period: "1950-1975",
-			title: "Thời kỳ khó khăn",
-			description: "Trong thời kỳ chiến tranh, nghệ thuật múa lân sư gặp nhiều khó khăn nhưng vẫn được duy trì bởi các nghệ nhân tâm huyết.",
-			events: ["Chiến tranh ảnh hưởng", "Nghệ nhân duy trì truyền thống", "Hoạt động hạn chế"],
+			title: "Challenging Period",
+			description: "During wartime, lion dance art faced many difficulties but was maintained by dedicated artists.",
+			events: ["War impact", "Artists preserving tradition", "Limited activities"],
 			image: "/src/assets/images/illustrations/mockup(10).JPG",
 			icon: "⚔️",
-			location: "Các vùng miền",
+			location: "Various regions",
 		},
 		{
 			id: 4,
 			period: "1975-1990",
-			title: "Khôi phục và phát triển",
-			description: "Sau khi đất nước thống nhất, nghệ thuật múa lân sư được khôi phục và phát triển mạnh mẽ, trở thành một hoạt động văn hóa quan trọng.",
-			events: ["Khôi phục sau chiến tranh", "Thành lập các đội lân mới", "Phát triển kỹ thuật biểu diễn"],
+			title: "Recovery and Development",
+			description: "After national unification, lion dance art was restored and developed strongly, becoming an important cultural activity.",
+			events: ["Post-war recovery", "Establishment of new teams", "Performance technique development"],
 			image: "/src/assets/images/illustrations/mockup(11).JPG",
 			icon: "🕊️",
-			location: "Cả nước",
+			location: "Countrywide",
 		},
 		{
 			id: 5,
 			period: "1990-2010",
-			title: "Hiện đại hóa",
-			description: "Nghệ thuật múa lân sư bước vào thời kỳ hiện đại hóa với sự kết hợp giữa truyền thống và hiện đại, tạo ra những màn biểu diễn ấn tượng.",
-			events: ["Hiện đại hóa kỹ thuật", "Kết hợp âm nhạc hiện đại", "Phát triển trang phục mới"],
+			title: "Modernization",
+			description: "Lion dance art entered a period of modernization, combining tradition with contemporary elements to create impressive performances.",
+			events: ["Technical modernization", "Integration of modern music", "Development of new costumes"],
 			image: "/src/assets/images/illustrations/mockup(12).JPG",
 			icon: "🚀",
-			location: "Thành phố lớn",
+			location: "Major cities",
 		},
 		{
 			id: 6,
-			period: "2010-Hiện tại",
-			title: "Thời kỳ hoàng kim",
-			description: "Nghệ thuật múa lân sư đạt đến đỉnh cao với sự phát triển mạnh mẽ, nhiều đội lân chuyên nghiệp và các cuộc thi quốc tế.",
-			events: ["Phát triển chuyên nghiệp", "Tham gia thi đấu quốc tế", "Bảo tồn và phát huy văn hóa"],
+			period: "2010-Present",
+			title: "Golden Era",
+			description: "Lion dance art has reached its peak with strong development, many professional teams and international competitions.",
+			events: ["Professional development", "International competition participation", "Cultural preservation and promotion"],
 			image: "/src/assets/images/illustrations/mockup(13).JPG",
 			icon: "👑",
-			location: "Quốc tế",
+			location: "International",
 		},
 	];
 
@@ -87,11 +87,11 @@ const TimelineHistorySection = () => {
 				{/* Section Header */}
 				<motion.div className="section-header" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}>
 					<h2 className="section-title">
-						<span className="title-text">Lịch Sử Phát Triển</span>
+						<span className="title-text">Development History</span>
 					</h2>
-					<p className="section-subtitle">Hành trình phát triển của nghệ thuật múa lân sư tại Việt Nam</p>
+					<p className="section-subtitle">The journey of lion dance art development in Vietnam</p>
 					<div className="section-description">
-						<p>Khám phá lịch sử hàng trăm năm của nghệ thuật múa lân sư, từ những ngày đầu du nhập đến sự phát triển rực rỡ như ngày nay.</p>
+						<p>Explore the centuries-old history of lion dance art, from its early introduction to its flourishing development today.</p>
 					</div>
 				</motion.div>
 
@@ -161,7 +161,7 @@ const TimelineHistorySection = () => {
 
 							{/* Key Events */}
 							<div className="key-events">
-								<h4 className="events-title">📅 Sự kiện chính</h4>
+								<h4 className="events-title">📅 Key Events</h4>
 								<div className="events-list">
 									{currentPeriod.events.map((event, index) => (
 										<div key={index} className="event-item">
@@ -174,9 +174,9 @@ const TimelineHistorySection = () => {
 
 							{/* Historical Impact */}
 							<div className="historical-impact">
-								<h4 className="impact-title">🎯 Tác động lịch sử</h4>
+								<h4 className="impact-title">🎯 Historical Impact</h4>
 								<div className="impact-content">
-									<p>Thời kỳ này đã đặt nền móng cho sự phát triển của nghệ thuật múa lân sư hiện đại và góp phần bảo tồn văn hóa truyền thống Việt Nam.</p>
+									<p>This period laid the foundation for the development of modern lion dance art and contributed to preserving Vietnamese traditional culture.</p>
 								</div>
 							</div>
 
@@ -184,11 +184,11 @@ const TimelineHistorySection = () => {
 							<div className="timeline-cta">
 								<button className="cta-button primary">
 									<span>📚</span>
-									Tìm hiểu thêm
+									Learn More
 								</button>
 								<button className="cta-button secondary">
 									<span>🎬</span>
-									Xem video lịch sử
+									Watch History Video
 								</button>
 							</div>
 						</div>
