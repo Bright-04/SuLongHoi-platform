@@ -1,13 +1,16 @@
 /* Designer Section Styles */
 .designer-section {
-	padding: var(--spacing-4xl) 0;
+	padding: 0;
 	background: linear-gradient(135deg, var(--bg-light), var(--bg-white));
+	width: 100%;
+	min-height: 100vh;
 }
 
 .designer-container {
-	max-width: 1600px;
-	margin: 0 auto;
-	padding: 0 var(--spacing-xl);
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -16,7 +19,7 @@
 /* Compact Header */
 .designer-header {
 	text-align: center;
-	padding: var(--spacing-2xl) 0;
+	padding: var(--spacing-lg) var(--spacing-xl);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -52,13 +55,27 @@
 	color: #333333 !important;
 }
 
-/* Content with designer-preview and actions in one row */
+/* Single div with 3 columns */
 .designer-content {
 	display: grid;
-	grid-template-columns: 2fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	gap: var(--spacing-3xl);
 	align-items: start;
-	padding: var(--spacing-xl) 0;
+	padding: var(--spacing-2xl);
+	width: 100%;
+	background: var(--bg-white);
+	border-radius: var(--radius-xl);
+	box-shadow: var(--shadow-lg);
+	min-height: 100vh;
+}
+
+.content-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: var(--spacing-xl);
+	height: 100%;
 }
 
 .designer-preview {
@@ -66,13 +83,17 @@
 	border-radius: var(--radius-xl);
 	padding: var(--spacing-2xl);
 	box-shadow: var(--shadow-lg);
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .preview-content {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
+	flex-direction: column;
 	gap: var(--spacing-2xl);
-	align-items: center;
+	align-items: flex-start;
 }
 
 .preview-text h3 {
@@ -129,6 +150,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 100%;
+	min-height: 400px;
 }
 
 .mock-3d-viewer {
@@ -210,15 +233,13 @@
 
 /* Designer Actions - bên phải */
 .designer-actions {
-	background: var(--bg-white);
-	border-radius: var(--radius-xl);
-	padding: var(--spacing-2xl);
-	box-shadow: var(--shadow-lg);
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: fit-content;
+	align-items: center;
+	height: 100%;
+	min-height: 400px;
 }
 
 .designer-actions h3 {
