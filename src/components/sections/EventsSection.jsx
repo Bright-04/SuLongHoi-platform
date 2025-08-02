@@ -98,7 +98,7 @@ const EventsSection = () => {
 
 							<div className="map-viewport">
 								<div className="map-background">
-									<img src={collage1} alt="Cultural map background" />
+									<img src="/assets/images/illustrations/map.png" alt="Cultural map background" />
 								</div>
 
 								<div className="map-overlay">
