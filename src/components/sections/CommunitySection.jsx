@@ -1,65 +1,304 @@
-import React from "react";
+import React, { useState } from "react";
 
 const CommunitySection = () => {
+	const [activeTab, setActiveTab] = useState("marketplace");
+	const [activeCategory, setActiveCategory] = useState("all");
+
+	const marketplaceProducts = [
+		{
+			id: 1,
+			image: "🦁",
+			title: "Traditional Red Lion Head",
+			seller: "Master Artisan Le",
+			rating: 5,
+			price: 299,
+			category: "heads",
+			featured: true,
+		},
+		{
+			id: 2,
+			image: "🦁",
+			title: "Golden Dragon Style Lion Head",
+			seller: "Dragon Arts Studio",
+			rating: 5,
+			price: 449,
+			category: "heads",
+		},
+		{
+			id: 3,
+			image: "👘",
+			title: "Silk Lion Costume Set",
+			seller: "Traditional Crafts Co.",
+			rating: 5,
+			price: 159,
+			category: "costumes",
+		},
+		{
+			id: 4,
+			image: "👘",
+			title: "Premium Performance Outfit",
+			seller: "Heritage Textiles",
+			rating: 4,
+			price: 229,
+			category: "costumes",
+		},
+		{
+			id: 5,
+			image: "🥁",
+			title: "Traditional Lion Dance Drums",
+			seller: "Rhythm Masters",
+			rating: 5,
+			price: 189,
+			category: "accessories",
+		},
+		{
+			id: 6,
+			image: "🔔",
+			title: "Ceremonial Bells Set",
+			seller: "Sound of Heritage",
+			rating: 4,
+			price: 79,
+			category: "accessories",
+		},
+		{
+			id: 7,
+			image: "🎭",
+			title: "Lion Dance Performance - 2 Hours",
+			seller: "Master Chen's Troupe",
+			rating: 5,
+			price: 650,
+			category: "booking",
+		},
+		{
+			id: 8,
+			image: "🎪",
+			title: "Workshop & Performance Package",
+			seller: "Cultural Arts Academy",
+			rating: 5,
+			price: 850,
+			category: "booking",
+		},
+	];
+
+	const storyWallPosts = [
+		{
+			id: 1,
+			author: "Master Wong",
+			avatar: "👨‍🦳",
+			time: "2 hours ago",
+			content:
+				"After 40 years of lion dancing, I'm still amazed by the energy of young performers. Today, I watched a 12-year-old nail the most complex routine on her first try. The future of our tradition is bright! 🦁✨",
+			likes: 127,
+			comments: 23,
+			type: "motivation",
+		},
+		{
+			id: 2,
+			author: "Sarah Chen",
+			avatar: "👩",
+			time: "5 hours ago",
+			content:
+				"From being afraid of heights to leading my school's lion dance team! Sometimes the biggest transformations happen when we face our fears. Thank you to all my mentors who believed in me 💪",
+			likes: 89,
+			comments: 15,
+			type: "personal-story",
+		},
+		{
+			id: 3,
+			author: "Lion Arts Collective",
+			avatar: "🏛️",
+			time: "1 day ago",
+			content:
+				"🎉 Congratulations to our student teams for winning 3 gold medals at the National Championships! Their dedication, discipline, and respect for tradition paid off. Proud mentor moment! 🏆",
+			likes: 234,
+			comments: 41,
+			type: "achievement",
+		},
+		{
+			id: 4,
+			author: "David Kim",
+			avatar: "👨",
+			time: "2 days ago",
+			content:
+				"Every scar tells a story, every bruise teaches a lesson. 6 months into my lion dance journey and I've never felt more connected to my heritage. The physical challenge is nothing compared to the spiritual growth 🙏",
+			likes: 156,
+			comments: 28,
+			type: "journey",
+		},
+	];
+
+	const stories = [
+		{
+			id: 1,
+			image: "📸",
+			title: "Behind the Scenes: Master Craftsman",
+			description: "Follow the journey of creating a lion head from bamboo to finished masterpiece...",
+			type: "documentary",
+			duration: "12 min",
+		},
+		{
+			id: 2,
+			image: "🎬",
+			title: "Young Performer's Journey",
+			description: "A teenager's path to mastering the art and finding their cultural identity...",
+			type: "personal-story",
+			duration: "8 min",
+		},
+		{
+			id: 3,
+			image: "🏆",
+			title: "Championship Dreams",
+			description: "Follow three teams as they prepare for the international lion dance competition...",
+			type: "competition",
+			duration: "15 min",
+		},
+		{
+			id: 4,
+			image: "👴",
+			title: "Wisdom of the Masters",
+			description: "Elder masters share their knowledge and the deep philosophy behind lion dance...",
+			type: "wisdom",
+			duration: "20 min",
+		},
+	];
+
+	const filteredProducts = activeCategory === "all" ? marketplaceProducts : marketplaceProducts.filter((product) => product.category === activeCategory);
+
+	const renderStars = (rating) => {
+		return "⭐".repeat(rating) + "☆".repeat(5 - rating);
+	};
+
 	return (
 		<section id="community" className="community-section">
 			<div className="container">
 				<h2 className="section-title">Community & Marketplace</h2>
 
 				<div className="community-tabs">
-					<button className="community-tab active">Marketplace</button>
-					<button className="community-tab">Stories</button>
-					<button className="community-tab">Community Wall</button>
+					<button className={`community-tab ${activeTab === "marketplace" ? "active" : ""}`} onClick={() => setActiveTab("marketplace")}>
+						Marketplace
+					</button>
+					<button className={`community-tab ${activeTab === "stories" ? "active" : ""}`} onClick={() => setActiveTab("stories")}>
+						Stories
+					</button>
+					<button className={`community-tab ${activeTab === "community" ? "active" : ""}`} onClick={() => setActiveTab("community")}>
+						Community Wall
+					</button>
 				</div>
 
-				<div className="marketplace">
-					<div className="marketplace-categories">
-						<button className="category-btn">Lion Heads</button>
-						<button className="category-btn">Costumes</button>
-						<button className="category-btn">Accessories</button>
-						<button className="category-btn">Performance Booking</button>
-					</div>
+				{/* Marketplace Tab */}
+				{activeTab === "marketplace" && (
+					<div className="marketplace">
+						<div className="marketplace-header">
+							<h3>Discover Authentic Lion Dance Items</h3>
+							<p>Support traditional craftsmen and performers worldwide</p>
+						</div>
 
-					<div className="marketplace-grid">
-						<div className="product-card">
-							<div className="product-image">🦁</div>
-							<h4>Traditional Red Lion Head</h4>
-							<div className="seller-info">
-								<span>By Master Artisan Le</span>
-								<div className="rating">⭐⭐⭐⭐⭐</div>
+						<div className="marketplace-categories">
+							<button className={`category-btn ${activeCategory === "all" ? "active" : ""}`} onClick={() => setActiveCategory("all")}>
+								All Items
+							</button>
+							<button className={`category-btn ${activeCategory === "heads" ? "active" : ""}`} onClick={() => setActiveCategory("heads")}>
+								Lion Heads
+							</button>
+							<button className={`category-btn ${activeCategory === "costumes" ? "active" : ""}`} onClick={() => setActiveCategory("costumes")}>
+								Costumes
+							</button>
+							<button className={`category-btn ${activeCategory === "accessories" ? "active" : ""}`} onClick={() => setActiveCategory("accessories")}>
+								Accessories
+							</button>
+							<button className={`category-btn ${activeCategory === "booking" ? "active" : ""}`} onClick={() => setActiveCategory("booking")}>
+								Performance Booking
+							</button>
+						</div>
+
+						<div className="marketplace-grid">
+							{filteredProducts.map((product) => (
+								<div key={product.id} className={`product-card ${product.featured ? "featured" : ""}`}>
+									{product.featured && <div className="featured-badge">Featured</div>}
+									<div className="product-image">{product.image}</div>
+									<h4>{product.title}</h4>
+									<div className="seller-info">
+										<span>By {product.seller}</span>
+										<div className="rating">{renderStars(product.rating)}</div>
+									</div>
+									<div className="price">${product.price}</div>
+									<div className="product-actions">
+										<button className="btn-primary">View Details</button>
+										<button className="btn-secondary">Add to Cart</button>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				)}
+
+				{/* Stories Tab */}
+				{activeTab === "stories" && (
+					<div className="community-stories">
+						<div className="stories-header">
+							<h3>Kể chuyện – Truyền nhân</h3>
+							<p>Inspiring stories from our community</p>
+						</div>
+						<div className="stories-gallery">
+							{stories.map((story) => (
+								<div key={story.id} className="story-card">
+									<div className="story-image">{story.image}</div>
+									<div className="story-meta">
+										<span className="story-type">{story.type}</span>
+										<span className="story-duration">{story.duration}</span>
+									</div>
+									<h4>{story.title}</h4>
+									<p>{story.description}</p>
+									<button className="story-btn">Watch Story</button>
+								</div>
+							))}
+						</div>
+					</div>
+				)}
+
+				{/* Community Wall Tab */}
+				{activeTab === "community" && (
+					<div className="community-wall">
+						<div className="wall-header">
+							<h3>Community Motivation Wall</h3>
+							<p>Share your journey, inspire others</p>
+							<button className="post-btn">Share Your Story</button>
+						</div>
+
+						<div className="story-wall">
+							{storyWallPosts.map((post) => (
+								<div key={post.id} className={`wall-post ${post.type}`}>
+									<div className="post-header">
+										<div className="author-info">
+											<span className="avatar">{post.avatar}</span>
+											<div>
+												<span className="author-name">{post.author}</span>
+												<span className="post-time">{post.time}</span>
+											</div>
+										</div>
+										<span className={`post-type-badge ${post.type}`}>{post.type.replace("-", " ")}</span>
+									</div>
+									<div className="post-content">{post.content}</div>
+									<div className="post-actions">
+										<button className="action-btn like">❤️ {post.likes}</button>
+										<button className="action-btn comment">💬 {post.comments}</button>
+										<button className="action-btn share">🔗 Share</button>
+									</div>
+								</div>
+							))}
+						</div>
+
+						<div className="motivation-quotes">
+							<h4>Daily Inspiration</h4>
+							<div className="quote-carousel">
+								<div className="quote-card">
+									<p>"The lion dance is not just movement, it's the heartbeat of our culture."</p>
+									<span>- Master Li Wei</span>
+								</div>
 							</div>
-							<div className="price">$299</div>
-						</div>
-
-						<div className="product-card">
-							<div className="product-image">👘</div>
-							<h4>Silk Lion Costume Set</h4>
-							<div className="seller-info">
-								<span>By Traditional Crafts Co.</span>
-								<div className="rating">⭐⭐⭐⭐⭐</div>
-							</div>
-							<div className="price">$159</div>
 						</div>
 					</div>
-				</div>
-
-				<div className="community-stories">
-					<h3>Kể chuyện – Truyền nhân</h3>
-					<div className="stories-gallery">
-						<div className="story-card">
-							<div className="story-image">📸</div>
-							<h4>Behind the Scenes: Master Craftsman</h4>
-							<p>Follow the journey of creating a lion head...</p>
-							<button className="story-btn">Watch Story</button>
-						</div>
-						<div className="story-card">
-							<div className="story-image">📸</div>
-							<h4>Young Performer's Journey</h4>
-							<p>A teenager's path to mastering the art...</p>
-							<button className="story-btn">Support Artist</button>
-						</div>
-					</div>
-				</div>
+				)}
 			</div>
 		</section>
 	);
