@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LionDesigner3D from "../designer/LionDesigner3D";
 
 const DesignerSection = () => {
 	return (
 		<section id="designer" className="designer-hero">
 			<div className="designer-hero-background">
+				<div className="designer-3d-preview">
+					<div className="lion-head-model">
+						<div className="lion-head-3d-container">
+							<LionDesigner3D />
+						</div>
+					</div>
+				</div>
 				<div className="designer-hero-overlay"></div>
 			</div>
 			
