@@ -1,6 +1,15 @@
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import "../../styles/sections/ImageLibrarySection.css";
+import mockup1 from "../../assets/images/illustrations/mockup(1).jpg";
+import mockup10 from "../../assets/images/illustrations/mockup(10).JPG";
+import mockup11 from "../../assets/images/illustrations/mockup(11).JPG";
+import mockup12 from "../../assets/images/illustrations/mockup(12).JPG";
+import mockup13 from "../../assets/images/illustrations/mockup(13).JPG";
+import mockup8 from "../../assets/images/illustrations/mockup(8).JPG";
+import mockup9 from "../../assets/images/illustrations/mockup(9).jpg";
+import collage1 from "../../assets/images/illustrations/collage1.png";
+import collage2 from "../../assets/images/illustrations/collage2.png";
 
 const ImageLibrarySection = () => {
 	const [selectedCategory, setSelectedCategory] = useState("all");
@@ -23,7 +32,7 @@ const ImageLibrarySection = () => {
 			id: 1,
 			title: "Golden Dragon Lion Performance",
 			category: "performances",
-			image: "/src/assets/images/illustrations/mockup(1).jpg",
+			image: mockup1,
 			description: "Impressive performance by the Golden Dragon Lion team at Festival 2023",
 			team: "Golden Dragon Lion Team",
 			year: "2023",
@@ -32,7 +41,7 @@ const ImageLibrarySection = () => {
 			id: 2,
 			title: "Traditional Lion Costume",
 			category: "costumes",
-			image: "/src/assets/images/illustrations/mockup(10).JPG",
+			image: mockup10,
 			description: "Traditional lion costume with intricate patterns",
 			team: "Phoenix Lion Team",
 			year: "2023",
@@ -41,7 +50,7 @@ const ImageLibrarySection = () => {
 			id: 3,
 			title: "Youth Lion Team",
 			category: "teams",
-			image: "/src/assets/images/illustrations/mockup(11).JPG",
+			image: mockup11,
 			description: "Young generation continuing the cultural tradition",
 			team: "Sky Dragon Lion Team",
 			year: "2023",
@@ -50,7 +59,7 @@ const ImageLibrarySection = () => {
 			id: 4,
 			title: "Lion Dance Festival 2023",
 			category: "events",
-			image: "/src/assets/images/illustrations/mockup(12).JPG",
+			image: mockup12,
 			description: "Vibrant atmosphere at the International Lion Dance Festival",
 			team: "Multiple participating teams",
 			year: "2023",
@@ -59,7 +68,7 @@ const ImageLibrarySection = () => {
 			id: 5,
 			title: "Fortune Lion Dance",
 			category: "performances",
-			image: "/src/assets/images/illustrations/mockup(13).JPG",
+			image: mockup13,
 			description: "Traditional fortune-seeking lion dance performance",
 			team: "Golden Dragon Lion Team",
 			year: "2023",
@@ -68,7 +77,7 @@ const ImageLibrarySection = () => {
 			id: 6,
 			title: "Modern Lion Costume",
 			category: "costumes",
-			image: "/src/assets/images/illustrations/mockup(8).JPG",
+			image: mockup8,
 			description: "Modern lion costume design combining tradition and innovation",
 			team: "Phoenix Lion Team",
 			year: "2023",
@@ -77,7 +86,7 @@ const ImageLibrarySection = () => {
 			id: 7,
 			title: "Lion Team Training",
 			category: "teams",
-			image: "/src/assets/images/illustrations/mockup(9).jpg",
+			image: mockup9,
 			description: "Rigorous training process of team members",
 			team: "Sky Dragon Lion Team",
 			year: "2023",
@@ -86,7 +95,7 @@ const ImageLibrarySection = () => {
 			id: 8,
 			title: "Spring Festival",
 			category: "events",
-			image: "/src/assets/images/illustrations/collage1.png",
+			image: collage1,
 			description: "Festive atmosphere during Lunar New Year celebrations",
 			team: "Multiple participating teams",
 			year: "2023",
@@ -145,7 +154,7 @@ const ImageLibrarySection = () => {
 									src={image.image}
 									alt={image.title}
 									onError={(e) => {
-										e.target.src = "/src/assets/images/illustrations/collage2.png";
+										e.target.src = collage2;
 									}}
 								/>
 								<div className="image-overlay">
@@ -183,7 +192,7 @@ const ImageLibrarySection = () => {
 							src={selectedImage.image}
 							alt={selectedImage.title}
 							onError={(e) => {
-								e.target.src = "/src/assets/images/illustrations/collage2.png";
+								e.target.src = collage2;
 							}}
 						/>
 						<div className="lightbox-info">

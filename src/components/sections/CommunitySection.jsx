@@ -1,4 +1,14 @@
 import React, { useState } from "react";
+import mockup1 from "../../assets/images/illustrations/mockup(1).jpg";
+import mockup8 from "../../assets/images/illustrations/mockup(8).JPG";
+import mockup9 from "../../assets/images/illustrations/mockup(9).jpg";
+import mockup10 from "../../assets/images/illustrations/mockup(10).JPG";
+import mockup11 from "../../assets/images/illustrations/mockup(11).JPG";
+import mockup12 from "../../assets/images/illustrations/mockup(12).JPG";
+import mockup13 from "../../assets/images/illustrations/mockup(13).JPG";
+import collage1 from "../../assets/images/illustrations/collage1.png";
+import collage2 from "../../assets/images/illustrations/collage2.png";
+import mockup1webp from "../../assets/images/illustrations/mockup(1).WEBP";
 
 const CommunitySection = () => {
 	const [activeCategory, setActiveCategory] = useState("all");
@@ -7,7 +17,7 @@ const CommunitySection = () => {
 	const marketplaceProducts = [
 		{
 			id: 1,
-			image: "/src/assets/images/illustrations/mockup(1).jpg",
+			image: mockup1,
 			title: "Traditional Red Lion Head",
 			seller: "Master Artisan Le",
 			rating: 5,
@@ -17,7 +27,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 2,
-			image: "/src/assets/images/illustrations/mockup(8).JPG",
+			image: mockup8,
 			title: "Golden Dragon Style Lion Head",
 			seller: "Dragon Arts Studio",
 			rating: 5,
@@ -26,7 +36,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 3,
-			image: "/src/assets/images/illustrations/mockup(9).jpg",
+			image: mockup9,
 			title: "Silk Lion Costume Set",
 			seller: "Traditional Crafts Co.",
 			rating: 5,
@@ -35,7 +45,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 4,
-			image: "/src/assets/images/illustrations/mockup(10).JPG",
+			image: mockup10,
 			title: "Premium Performance Outfit",
 			seller: "Heritage Textiles",
 			rating: 4,
@@ -44,7 +54,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 5,
-			image: "/src/assets/images/illustrations/mockup(11).JPG",
+			image: mockup11,
 			title: "Traditional Lion Dance Drums",
 			seller: "Rhythm Masters",
 			rating: 5,
@@ -53,7 +63,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 6,
-			image: "/src/assets/images/illustrations/mockup(12).JPG",
+			image: mockup12,
 			title: "Ceremonial Bells Set",
 			seller: "Sound of Heritage",
 			rating: 4,
@@ -62,7 +72,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 7,
-			image: "/src/assets/images/illustrations/mockup(13).JPG",
+			image: mockup13,
 			title: "Lion Dance Performance - 2 Hours",
 			seller: "Master Chen's Troupe",
 			rating: 5,
@@ -71,7 +81,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 8,
-			image: "/src/assets/images/illustrations/collage1.png",
+			image: collage1,
 			title: "Workshop & Performance Package",
 			seller: "Cultural Arts Academy",
 			rating: 5,
@@ -130,7 +140,7 @@ const CommunitySection = () => {
 	const stories = [
 		{
 			id: 1,
-			image: "/src/assets/images/illustrations/collage2.png",
+			image: collage2,
 			title: "Behind the Scenes: Master Craftsman",
 			description: "Follow the journey of creating a lion head from bamboo to finished masterpiece...",
 			type: "documentary",
@@ -138,7 +148,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 2,
-			image: "/src/assets/images/illustrations/mockup(1).WEBP",
+			image: mockup1webp,
 			title: "Young Performer's Journey",
 			description: "A teenager's path to mastering the art and finding their cultural identity...",
 			type: "personal-story",
@@ -146,7 +156,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 3,
-			image: "/src/assets/images/illustrations/preview-site.png",
+			image: collage2, // Using collage2 as fallback for preview-site.png
 			title: "Championship Dreams",
 			description: "Follow three teams as they prepare for the international lion dance competition...",
 			type: "competition",
@@ -154,7 +164,7 @@ const CommunitySection = () => {
 		},
 		{
 			id: 4,
-			image: "/src/assets/images/illustrations/mockup(10).JPG",
+			image: mockup10,
 			title: "Wisdom of the Masters",
 			description: "Elder masters share their knowledge and the deep philosophy behind lion dance...",
 			type: "wisdom",

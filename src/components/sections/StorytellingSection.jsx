@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import "../../styles/sections/StorytellingSection.css";
+import mockup1 from "../../assets/images/illustrations/mockup(1).jpg";
+import mockup10 from "../../assets/images/illustrations/mockup(10).JPG";
+import mockup11 from "../../assets/images/illustrations/mockup(11).JPG";
+import collage2 from "../../assets/images/illustrations/collage2.png";
 
 const StorytellingSection = () => {
 	const [activeStory, setActiveStory] = useState(0);
@@ -18,7 +22,7 @@ const StorytellingSection = () => {
 			members: 25,
 			achievements: ["1st Place - Lion Dance Festival 2023", "Represented Vietnam at World Lion Dance Championship 2022"],
 			story: "From a group of young people passionate about traditional culture, the Golden Dragon Lion Dance Team has developed into one of Vietnam's leading lion dance teams. With nearly 30 years of activity, the team has trained hundreds of generations of performers and preserved traditional performance techniques.",
-			image: "/src/assets/images/illustrations/mockup(1).jpg",
+			image: mockup1,
 			video: "https://example.com/team1-video.mp4",
 			costumes: ["Traditional Golden Lion", "Feng Shui Red Lion", "Ocean Blue Lion"],
 			performances: ["Wealth Seeking Dance", "Blessing Dance", "Grand Opening Dance"],
@@ -31,7 +35,7 @@ const StorytellingSection = () => {
 			members: 18,
 			achievements: ["2nd Place - Lion Dance Festival 2023", "1st Place - Mass Art Performance 2021"],
 			story: "The Phoenix Lion Dance Team was established with the goal of preserving and developing Northern lion dance art. The team is famous for unique performances that combine tradition and modernity.",
-			image: "/src/assets/images/illustrations/mockup(10).JPG",
+			image: mockup10,
 			video: "https://example.com/team2-video.mp4",
 			costumes: ["Traditional Red Lion", "Prosperous Golden Lion", "Noble Blue Lion"],
 			performances: ["Peace Seeking Dance", "Blessing Dance", "Spring Opening Dance"],
@@ -44,7 +48,7 @@ const StorytellingSection = () => {
 			members: 22,
 			achievements: ["3rd Place - Lion Dance Festival 2023", "1st Place - Central Cultural Festival 2022"],
 			story: "The Heavenly Dragon Lion Dance Team is the pride of the Central region. With creativity in combining traditional and modern music, the team has created unique performances that attract large audiences.",
-			image: "/src/assets/images/illustrations/mockup(11).JPG",
+			image: mockup11,
 			video: "https://example.com/team3-video.mp4",
 			costumes: ["Ocean Blue Lion", "Fiery Red Lion", "Golden Metallic Lion"],
 			performances: ["Rain Seeking Dance", "Wind Seeking Dance", "Festival Opening Dance"],
@@ -89,7 +93,7 @@ const StorytellingSection = () => {
 									alt={currentStory.name}
 									className="story-image"
 									onError={(e) => {
-										e.target.src = "/src/assets/images/illustrations/collage2.png";
+										e.target.src = collage2;
 									}}
 								/>
 								<div className="image-overlay">

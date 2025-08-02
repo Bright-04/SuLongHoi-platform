@@ -1,6 +1,14 @@
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import "../../styles/sections/PerformanceBoardSection.css";
+import mockup1 from "../../assets/images/illustrations/mockup(1).jpg";
+import mockup10 from "../../assets/images/illustrations/mockup(10).JPG";
+import mockup11 from "../../assets/images/illustrations/mockup(11).JPG";
+import mockup12 from "../../assets/images/illustrations/mockup(12).JPG";
+import mockup13 from "../../assets/images/illustrations/mockup(13).JPG";
+import mockup8 from "../../assets/images/illustrations/mockup(8).JPG";
+import mockup9 from "../../assets/images/illustrations/mockup(9).jpg";
+import collage1 from "../../assets/images/illustrations/collage1.png";
 
 const PerformanceBoardSection = () => {
 	const [selectedCategory, setSelectedCategory] = useState("all");
@@ -30,7 +38,7 @@ const PerformanceBoardSection = () => {
 			performances: 156,
 			yearsActive: 28,
 			members: 25,
-			image: "/src/assets/images/illustrations/mockup(1).jpg",
+			image: mockup1,
 			badge: "🥇",
 			trend: "up",
 		},
@@ -45,7 +53,7 @@ const PerformanceBoardSection = () => {
 			performances: 142,
 			yearsActive: 23,
 			members: 18,
-			image: "/src/assets/images/illustrations/mockup(10).JPG",
+			image: mockup10,
 			badge: "🥈",
 			trend: "up",
 		},
@@ -60,7 +68,7 @@ const PerformanceBoardSection = () => {
 			performances: 128,
 			yearsActive: 15,
 			members: 22,
-			image: "/src/assets/images/illustrations/mockup(11).JPG",
+			image: mockup11,
 			badge: "🥉",
 			trend: "stable",
 		},
@@ -75,7 +83,7 @@ const PerformanceBoardSection = () => {
 			performances: 98,
 			yearsActive: 12,
 			members: 20,
-			image: "/src/assets/images/illustrations/mockup(12).JPG",
+			image: mockup12,
 			badge: "🏅",
 			trend: "up",
 		},
@@ -90,7 +98,7 @@ const PerformanceBoardSection = () => {
 			performances: 87,
 			yearsActive: 18,
 			members: 16,
-			image: "/src/assets/images/illustrations/mockup(13).JPG",
+			image: mockup13,
 			badge: "🏅",
 			trend: "down",
 		},
@@ -105,7 +113,7 @@ const PerformanceBoardSection = () => {
 			performances: 65,
 			yearsActive: 8,
 			members: 12,
-			image: "/src/assets/images/illustrations/mockup(8).JPG",
+			image: mockup8,
 			badge: "👶",
 			trend: "up",
 		},
@@ -120,7 +128,7 @@ const PerformanceBoardSection = () => {
 			performances: 76,
 			yearsActive: 14,
 			members: 19,
-			image: "/src/assets/images/illustrations/mockup(9).jpg",
+			image: mockup9,
 			badge: "🏅",
 			trend: "stable",
 		},
@@ -135,7 +143,7 @@ const PerformanceBoardSection = () => {
 			performances: 45,
 			yearsActive: 20,
 			members: 30,
-			image: "/src/assets/images/illustrations/collage1.png",
+			image: collage1,
 			badge: "🌍",
 			trend: "up",
 		},
@@ -245,7 +253,7 @@ const PerformanceBoardSection = () => {
 											src={team.image}
 											alt={team.teamName}
 											onError={(e) => {
-												e.target.src = "/src/assets/images/illustrations/collage2.png";
+												e.target.src = "/assets/images/illustrations/collage2.png";
 											}}
 										/>
 									</div>

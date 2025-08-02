@@ -1,6 +1,13 @@
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import "../../styles/sections/TimelineHistorySection.css";
+import collage1 from "../../assets/images/illustrations/collage1.png";
+import mockup1 from "../../assets/images/illustrations/mockup(1).jpg";
+import mockup10 from "../../assets/images/illustrations/mockup(10).JPG";
+import mockup11 from "../../assets/images/illustrations/mockup(11).JPG";
+import mockup12 from "../../assets/images/illustrations/mockup(12).JPG";
+import mockup13 from "../../assets/images/illustrations/mockup(13).JPG";
+import collage2 from "../../assets/images/illustrations/collage2.png";
 
 const TimelineHistorySection = () => {
 	const [activePeriod, setActivePeriod] = useState(0);
@@ -15,7 +22,7 @@ const TimelineHistorySection = () => {
 			title: "Cultural Origins",
 			description: "Lion dance art was introduced to Vietnam from China, primarily through Chinese communities settling in major cities.",
 			events: ["Introduction from China", "Development in Chinese communities", "Formation of first lion dance teams"],
-			image: "/src/assets/images/illustrations/collage1.png",
+			image: collage1,
 			icon: "🏛️",
 			location: "Major cities",
 		},
@@ -25,7 +32,7 @@ const TimelineHistorySection = () => {
 			title: "Traditional Development",
 			description: "Lion dance art began to be Vietnamized and developed into an integral part of Vietnamese folk culture.",
 			events: ["Vietnamization of lion dance art", "Development of unique techniques", "Becoming folk culture"],
-			image: "/src/assets/images/illustrations/mockup(1).jpg",
+			image: mockup1,
 			icon: "🎭",
 			location: "Nationwide",
 		},
@@ -35,7 +42,7 @@ const TimelineHistorySection = () => {
 			title: "Challenging Period",
 			description: "During wartime, lion dance art faced many difficulties but was maintained by dedicated artists.",
 			events: ["War impact", "Artists preserving tradition", "Limited activities"],
-			image: "/src/assets/images/illustrations/mockup(10).JPG",
+			image: mockup10,
 			icon: "⚔️",
 			location: "Various regions",
 		},
@@ -45,7 +52,7 @@ const TimelineHistorySection = () => {
 			title: "Recovery and Development",
 			description: "After national unification, lion dance art was restored and developed strongly, becoming an important cultural activity.",
 			events: ["Post-war recovery", "Establishment of new teams", "Performance technique development"],
-			image: "/src/assets/images/illustrations/mockup(11).JPG",
+			image: mockup11,
 			icon: "🕊️",
 			location: "Countrywide",
 		},
@@ -55,7 +62,7 @@ const TimelineHistorySection = () => {
 			title: "Modernization",
 			description: "Lion dance art entered a period of modernization, combining tradition with contemporary elements to create impressive performances.",
 			events: ["Technical modernization", "Integration of modern music", "Development of new costumes"],
-			image: "/src/assets/images/illustrations/mockup(12).JPG",
+			image: mockup12,
 			icon: "🚀",
 			location: "Major cities",
 		},
@@ -65,7 +72,7 @@ const TimelineHistorySection = () => {
 			title: "Golden Era",
 			description: "Lion dance art has reached its peak with strong development, many professional teams and international competitions.",
 			events: ["Professional development", "International competition participation", "Cultural preservation and promotion"],
-			image: "/src/assets/images/illustrations/mockup(13).JPG",
+			image: mockup13,
 			icon: "👑",
 			location: "International",
 		},
@@ -126,7 +133,7 @@ const TimelineHistorySection = () => {
 										src={currentPeriod.image}
 										alt={currentPeriod.title}
 										onError={(e) => {
-											e.target.src = "/src/assets/images/illustrations/collage2.png";
+											e.target.src = collage2;
 										}}
 									/>
 									<div className="image-overlay">
