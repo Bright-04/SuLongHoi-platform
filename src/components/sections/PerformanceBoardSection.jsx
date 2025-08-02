@@ -10,11 +10,11 @@ const PerformanceBoardSection = () => {
 
 	// Performance categories
 	const performanceCategories = [
-		{ id: "all", name: "Tất cả", icon: "🏆" },
-		{ id: "national", name: "Quốc gia", icon: "🇻🇳" },
-		{ id: "international", name: "Quốc tế", icon: "🌍" },
-		{ id: "regional", name: "Khu vực", icon: "🏘️" },
-		{ id: "youth", name: "Thiếu nhi", icon: "👶" },
+		{ id: "all", name: "All", icon: "🏆" },
+		{ id: "national", name: "National", icon: "🇻🇳" },
+		{ id: "international", name: "International", icon: "🌍" },
+		{ id: "regional", name: "Regional", icon: "🏘️" },
+		{ id: "youth", name: "Youth", icon: "👶" },
 	];
 
 	// Performance data
@@ -22,11 +22,11 @@ const PerformanceBoardSection = () => {
 		{
 			id: 1,
 			rank: 1,
-			teamName: "Đội Lân Sư Rồng Vàng",
-			location: "Hồ Chí Minh",
+			teamName: "Golden Dragon Lion Team",
+			location: "Ho Chi Minh City",
 			category: "national",
 			score: 98.5,
-			achievements: ["Giải nhất Festival Lân Sư 2023", "Đại diện Việt Nam tại World Lion Dance Championship 2022", "Giải nhất Hội diễn Văn nghệ Quần chúng 2021"],
+			achievements: ["1st Place Lion Dance Festival 2023", "Vietnam Representative at World Lion Dance Championship 2022", "1st Place National Folk Performance Contest 2021"],
 			performances: 156,
 			yearsActive: 28,
 			members: 25,
@@ -37,11 +37,11 @@ const PerformanceBoardSection = () => {
 		{
 			id: 2,
 			rank: 2,
-			teamName: "Đội Lân Sư Phượng Hoàng",
-			location: "Hà Nội",
+			teamName: "Phoenix Lion Team",
+			location: "Hanoi",
 			category: "national",
 			score: 96.8,
-			achievements: ["Giải nhì Festival Lân Sư 2023", "Giải nhất Hội diễn Văn nghệ Quần chúng 2021", "Giải ba World Lion Dance Championship 2022"],
+			achievements: ["2nd Place Lion Dance Festival 2023", "1st Place National Folk Performance Contest 2021", "3rd Place World Lion Dance Championship 2022"],
 			performances: 142,
 			yearsActive: 23,
 			members: 18,
@@ -52,11 +52,11 @@ const PerformanceBoardSection = () => {
 		{
 			id: 3,
 			rank: 3,
-			teamName: "Đội Lân Sư Thiên Long",
-			location: "Đà Nẵng",
+			teamName: "Heavenly Dragon Lion Team",
+			location: "Da Nang",
 			category: "national",
 			score: 95.2,
-			achievements: ["Giải ba Festival Lân Sư 2023", "Giải nhất Liên hoan Văn hóa Miền Trung 2022", "Giải nhì Hội diễn Văn nghệ Quần chúng 2021"],
+			achievements: ["3rd Place Lion Dance Festival 2023", "1st Place Central Region Cultural Festival 2022", "2nd Place National Folk Performance Contest 2021"],
 			performances: 128,
 			yearsActive: 15,
 			members: 22,
@@ -67,11 +67,11 @@ const PerformanceBoardSection = () => {
 		{
 			id: 4,
 			rank: 4,
-			teamName: "Đội Lân Sư Hoa Sen",
-			location: "Cần Thơ",
+			teamName: "Lotus Lion Team",
+			location: "Can Tho",
 			category: "regional",
 			score: 93.7,
-			achievements: ["Giải nhất Liên hoan Văn hóa Đồng bằng sông Cửu Long 2023", "Giải nhì Festival Lân Sư 2023", "Giải nhất Hội diễn Văn nghệ Miền Nam 2022"],
+			achievements: ["1st Place Mekong Delta Cultural Festival 2023", "2nd Place Lion Dance Festival 2023", "1st Place Southern Region Folk Performance 2022"],
 			performances: 98,
 			yearsActive: 12,
 			members: 20,
@@ -82,11 +82,11 @@ const PerformanceBoardSection = () => {
 		{
 			id: 5,
 			rank: 5,
-			teamName: "Đội Lân Sư Bảo Vệ",
-			location: "Hải Phòng",
+			teamName: "Guardian Lion Team",
+			location: "Hai Phong",
 			category: "regional",
 			score: 92.1,
-			achievements: ["Giải nhất Liên hoan Văn hóa Miền Bắc 2023", "Giải ba Festival Lân Sư 2023", "Giải nhì Hội diễn Văn nghệ Miền Bắc 2022"],
+			achievements: ["1st Place Northern Region Cultural Festival 2023", "3rd Place Lion Dance Festival 2023", "2nd Place Northern Region Folk Performance 2022"],
 			performances: 87,
 			yearsActive: 18,
 			members: 16,
@@ -97,11 +97,11 @@ const PerformanceBoardSection = () => {
 		{
 			id: 6,
 			rank: 6,
-			teamName: "Đội Lân Sư Tuổi Thơ",
-			location: "Hồ Chí Minh",
+			teamName: "Young Lions Team",
+			location: "Ho Chi Minh City",
 			category: "youth",
 			score: 90.5,
-			achievements: ["Giải nhất Liên hoan Lân Sư Thiếu nhi 2023", "Giải nhì Festival Lân Sư 2023 (Hạng thiếu nhi)", "Giải nhất Hội diễn Văn nghệ Thiếu nhi 2022"],
+			achievements: ["1st Place Youth Lion Dance Festival 2023", "2nd Place Lion Dance Festival 2023 (Youth Category)", "1st Place Youth Folk Performance Contest 2022"],
 			performances: 65,
 			yearsActive: 8,
 			members: 12,
@@ -112,11 +112,11 @@ const PerformanceBoardSection = () => {
 		{
 			id: 7,
 			rank: 7,
-			teamName: "Đội Lân Sư Hùng Vương",
-			location: "Huế",
+			teamName: "Hung Vuong Lion Team",
+			location: "Hue",
 			category: "regional",
 			score: 89.3,
-			achievements: ["Giải nhì Liên hoan Văn hóa Miền Trung 2023", "Giải ba Festival Lân Sư 2023", "Giải nhất Hội diễn Văn nghệ Thừa Thiên Huế 2022"],
+			achievements: ["2nd Place Central Region Cultural Festival 2023", "3rd Place Lion Dance Festival 2023", "1st Place Thua Thien Hue Folk Performance 2022"],
 			performances: 76,
 			yearsActive: 14,
 			members: 19,
@@ -127,11 +127,11 @@ const PerformanceBoardSection = () => {
 		{
 			id: 8,
 			rank: 8,
-			teamName: "Đội Lân Sư Việt Nam",
-			location: "Hà Nội",
+			teamName: "Vietnam Lion Team",
+			location: "Hanoi",
 			category: "international",
 			score: 88.7,
-			achievements: ["Đại diện Việt Nam tại World Lion Dance Championship 2023", "Giải nhì Asian Lion Dance Championship 2022", "Giải nhất Southeast Asian Lion Dance Festival 2021"],
+			achievements: ["Vietnam Representative at World Lion Dance Championship 2023", "2nd Place Asian Lion Dance Championship 2022", "1st Place Southeast Asian Lion Dance Festival 2021"],
 			performances: 45,
 			yearsActive: 20,
 			members: 30,
@@ -178,11 +178,11 @@ const PerformanceBoardSection = () => {
 				{/* Section Header */}
 				<motion.div className="section-header" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}>
 					<h2 className="section-title">
-						<span className="title-text">Bảng Xếp Hạng Thành Tích</span>
+						<span className="title-text">Performance Leaderboard</span>
 					</h2>
-					<p className="section-subtitle">Top các đội lân sư xuất sắc nhất Việt Nam</p>
+					<p className="section-subtitle">Top Lion Dance Teams in Vietnam</p>
 					<div className="section-description">
-						<p>Khám phá những đội lân sư hàng đầu với thành tích ấn tượng, từ các giải thưởng quốc gia đến thành công quốc tế.</p>
+						<p>Discover the leading lion dance teams with impressive achievements, from national awards to international success.</p>
 					</div>
 				</motion.div>
 
@@ -200,12 +200,12 @@ const PerformanceBoardSection = () => {
 
 					{/* Sort Options */}
 					<div className="sort-controls">
-						<label htmlFor="sort-select">Sắp xếp theo:</label>
+						<label htmlFor="sort-select">Sort by:</label>
 						<select id="sort-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="sort-select">
-							<option value="rank">Thứ hạng</option>
-							<option value="score">Điểm số</option>
-							<option value="performances">Số buổi biểu diễn</option>
-							<option value="yearsActive">Năm kinh nghiệm</option>
+							<option value="rank">Rank</option>
+							<option value="score">Score</option>
+							<option value="performances">Performances</option>
+							<option value="yearsActive">Years of Experience</option>
 						</select>
 					</div>
 				</motion.div>
@@ -214,12 +214,12 @@ const PerformanceBoardSection = () => {
 				<motion.div className="performance-board" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.4 }}>
 					{/* Board Header */}
 					<div className="board-header">
-						<div className="header-rank">Hạng</div>
-						<div className="header-team">Đội lân</div>
-						<div className="header-score">Điểm</div>
-						<div className="header-stats">Thống kê</div>
-						<div className="header-achievements">Thành tích</div>
-						<div className="header-trend">Xu hướng</div>
+						<div className="header-rank">Rank</div>
+						<div className="header-team">Team</div>
+						<div className="header-score">Score</div>
+						<div className="header-stats">Statistics</div>
+						<div className="header-achievements">Achievements</div>
+						<div className="header-trend">Trend</div>
 					</div>
 
 					{/* Board Rows */}
@@ -269,15 +269,15 @@ const PerformanceBoardSection = () => {
 								<div className="row-stats">
 									<div className="stats-grid">
 										<div className="stat-item">
-											<span className="stat-label">Biểu diễn</span>
+											<span className="stat-label">Performances</span>
 											<span className="stat-value">{team.performances}</span>
 										</div>
 										<div className="stat-item">
-											<span className="stat-label">Kinh nghiệm</span>
-											<span className="stat-value">{team.yearsActive} năm</span>
+											<span className="stat-label">Experience</span>
+											<span className="stat-value">{team.yearsActive} years</span>
 										</div>
 										<div className="stat-item">
-											<span className="stat-label">Thành viên</span>
+											<span className="stat-label">Members</span>
 											<span className="stat-value">{team.members}</span>
 										</div>
 									</div>
@@ -292,7 +292,7 @@ const PerformanceBoardSection = () => {
 												<span className="achievement-text">{achievement}</span>
 											</div>
 										))}
-										{team.achievements.length > 2 && <div className="achievement-more">+{team.achievements.length - 2} thành tích khác</div>}
+										{team.achievements.length > 2 && <div className="achievement-more">+{team.achievements.length - 2} more achievements</div>}
 									</div>
 								</div>
 
@@ -305,34 +305,34 @@ const PerformanceBoardSection = () => {
 					</div>
 				</motion.div>
 
-				{/* Board Summary */}
-				<motion.div className="board-summary" initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
+				{/* Board Summary - Integrated into main board */}
+				<motion.div className="board-summary-integrated" initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
 					<div className="summary-stats">
 						<div className="summary-item">
 							<span className="summary-number">{performanceData.length}</span>
-							<span className="summary-label">Đội lân xuất sắc</span>
+							<span className="summary-label">Outstanding Teams</span>
 						</div>
 						<div className="summary-item">
 							<span className="summary-number">{Math.round((performanceData.reduce((acc, team) => acc + team.score, 0) / performanceData.length) * 10) / 10}</span>
-							<span className="summary-label">Điểm trung bình</span>
+							<span className="summary-label">Average Score</span>
 						</div>
 						<div className="summary-item">
 							<span className="summary-number">{performanceData.reduce((acc, team) => acc + team.performances, 0)}</span>
-							<span className="summary-label">Tổng buổi biểu diễn</span>
+							<span className="summary-label">Total Performances</span>
 						</div>
 					</div>
-				</motion.div>
 
-				{/* Call to Action */}
-				<motion.div className="board-cta" initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.8 }}>
-					<button className="cta-button primary">
-						<span>📊</span>
-						Xem báo cáo chi tiết
-					</button>
-					<button className="cta-button secondary">
-						<span>🏆</span>
-						Đăng ký tham gia
-					</button>
+					{/* Call to Action */}
+					<div className="board-cta">
+						<button className="cta-button primary">
+							<span>📊</span>
+							View Detailed Report
+						</button>
+						<button className="cta-button secondary">
+							<span>🏆</span>
+							Join Competition
+						</button>
+					</div>
 				</motion.div>
 			</div>
 		</section>
