@@ -11,84 +11,84 @@ const ImageLibrarySection = () => {
 
 	// Image categories and data
 	const imageCategories = [
-		{ id: "all", name: "Tất cả", icon: "🖼️" },
-		{ id: "performances", name: "Biểu diễn", icon: "🎭" },
-		{ id: "costumes", name: "Trang phục", icon: "👘" },
-		{ id: "teams", name: "Đội lân", icon: "🦁" },
-		{ id: "events", name: "Sự kiện", icon: "🎪" },
+		{ id: "all", name: "All", icon: "🖼️" },
+		{ id: "performances", name: "Performances", icon: "🎭" },
+		{ id: "costumes", name: "Costumes", icon: "👘" },
+		{ id: "teams", name: "Teams", icon: "🦁" },
+		{ id: "events", name: "Events", icon: "🎪" },
 	];
 
 	const imageLibrary = [
 		{
 			id: 1,
-			title: "Lân Sư Rồng Vàng biểu diễn",
+			title: "Golden Dragon Lion Performance",
 			category: "performances",
 			image: "/src/assets/images/illustrations/mockup(1).jpg",
-			description: "Màn biểu diễn ấn tượng của đội Lân Sư Rồng Vàng tại Festival 2023",
-			team: "Đội Lân Sư Rồng Vàng",
+			description: "Impressive performance by the Golden Dragon Lion team at Festival 2023",
+			team: "Golden Dragon Lion Team",
 			year: "2023",
 		},
 		{
 			id: 2,
-			title: "Trang phục lân truyền thống",
+			title: "Traditional Lion Costume",
 			category: "costumes",
 			image: "/src/assets/images/illustrations/mockup(10).JPG",
-			description: "Bộ trang phục lân truyền thống với họa tiết tinh xảo",
-			team: "Đội Lân Sư Phượng Hoàng",
+			description: "Traditional lion costume with intricate patterns",
+			team: "Phoenix Lion Team",
 			year: "2023",
 		},
 		{
 			id: 3,
-			title: "Đội lân thiếu nhi",
+			title: "Youth Lion Team",
 			category: "teams",
 			image: "/src/assets/images/illustrations/mockup(11).JPG",
-			description: "Thế hệ trẻ tiếp nối truyền thống văn hóa",
-			team: "Đội Lân Sư Thiên Long",
+			description: "Young generation continuing the cultural tradition",
+			team: "Sky Dragon Lion Team",
 			year: "2023",
 		},
 		{
 			id: 4,
-			title: "Festival Lân Sư 2023",
+			title: "Lion Dance Festival 2023",
 			category: "events",
 			image: "/src/assets/images/illustrations/mockup(12).JPG",
-			description: "Không khí sôi động tại Festival Lân Sư quốc tế",
-			team: "Nhiều đội tham gia",
+			description: "Vibrant atmosphere at the International Lion Dance Festival",
+			team: "Multiple participating teams",
 			year: "2023",
 		},
 		{
 			id: 5,
-			title: "Múa lân cầu tài",
+			title: "Fortune Lion Dance",
 			category: "performances",
 			image: "/src/assets/images/illustrations/mockup(13).JPG",
-			description: "Tiết mục múa lân cầu tài lộc truyền thống",
-			team: "Đội Lân Sư Rồng Vàng",
+			description: "Traditional fortune-seeking lion dance performance",
+			team: "Golden Dragon Lion Team",
 			year: "2023",
 		},
 		{
 			id: 6,
-			title: "Trang phục lân hiện đại",
+			title: "Modern Lion Costume",
 			category: "costumes",
 			image: "/src/assets/images/illustrations/mockup(8).JPG",
-			description: "Thiết kế trang phục lân kết hợp truyền thống và hiện đại",
-			team: "Đội Lân Sư Phượng Hoàng",
+			description: "Modern lion costume design combining tradition and innovation",
+			team: "Phoenix Lion Team",
 			year: "2023",
 		},
 		{
 			id: 7,
-			title: "Tập luyện đội lân",
+			title: "Lion Team Training",
 			category: "teams",
 			image: "/src/assets/images/illustrations/mockup(9).jpg",
-			description: "Quá trình tập luyện gian khổ của các thành viên",
-			team: "Đội Lân Sư Thiên Long",
+			description: "Rigorous training process of team members",
+			team: "Sky Dragon Lion Team",
 			year: "2023",
 		},
 		{
 			id: 8,
-			title: "Lễ hội mùa xuân",
+			title: "Spring Festival",
 			category: "events",
 			image: "/src/assets/images/illustrations/collage1.png",
-			description: "Không khí tưng bừng trong dịp Tết Nguyên Đán",
-			team: "Nhiều đội tham gia",
+			description: "Festive atmosphere during Lunar New Year celebrations",
+			team: "Multiple participating teams",
 			year: "2023",
 		},
 	];
@@ -111,11 +111,11 @@ const ImageLibrarySection = () => {
 				{/* Section Header */}
 				<motion.div className="section-header" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }}>
 					<h2 className="section-title">
-						<span className="title-text">Thư Viện Hình Ảnh</span>
+						<span className="title-text">Image Library</span>
 					</h2>
-					<p className="section-subtitle">Khám phá kho tàng hình ảnh đẹp về nghệ thuật múa lân sư</p>
+					<p className="section-subtitle">Discover the beautiful collection of lion dance art</p>
 					<div className="section-description">
-						<p>Bộ sưu tập hình ảnh đa dạng từ các buổi biểu diễn, trang phục truyền thống, đến những khoảnh khắc đáng nhớ của các đội lân sư hàng đầu Việt Nam.</p>
+						<p>A diverse collection of images from performances, traditional costumes, to memorable moments of Vietnam's leading lion dance teams.</p>
 					</div>
 				</motion.div>
 
@@ -167,7 +167,7 @@ const ImageLibrarySection = () => {
 				<motion.div className="load-more-container" initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
 					<button className="load-more-btn">
 						<span>📸</span>
-						Xem thêm hình ảnh
+						View More Images
 					</button>
 				</motion.div>
 			</div>
