@@ -1,21 +1,32 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/layout/Navbar.css";
 import logo from "../../assets/images/logos/logo.png";
 
 const Navbar = () => {
 	const location = useLocation();
-	const isDesignerPage = location.pathname === '/designer';
+	const navigate = useNavigate();
+	const isDesignerPage = location.pathname === "/designer";
 	const isHomePage = location.pathname === "/";
 	const [isNavigating, setIsNavigating] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	const scrollToSection = (sectionId) => {
 		if (isHomePage) {
+			// If already on home page, scroll directly
 			const element = document.getElementById(sectionId);
 			if (element) {
 				element.scrollIntoView({ behavior: "smooth" });
 			}
+		} else {
+			// If not on home page, navigate to home first, then scroll
+			navigate("/");
+			setTimeout(() => {
+				const element = document.getElementById(sectionId);
+				if (element) {
+					element.scrollIntoView({ behavior: "smooth" });
+				}
+			}, 100); // Small delay to ensure page loads
 		}
 		// Close mobile menu after scrolling
 		setIsMobileMenuOpen(false);
@@ -56,49 +67,36 @@ const Navbar = () => {
 				</button>
 
 				<div className={`nav-menu ${isMobileMenuOpen ? "mobile-open" : ""}`}>
-					<Link to="/" className={`nav-link ${isActivePage("/") ? "active" : ""}`} onClick={handleLinkClick}>
+					<button className="nav-link" onClick={() => scrollToSection("home")}>
 						Home
+					</button>
+					<Link to="/designer" className={`nav-link ${isDesignerPage ? "active" : ""}`} onClick={handleLinkClick}>
+						3D Designer
 					</Link>
-					<Link to="/knowledge" className={`nav-link ${isActivePage("/knowledge") ? "active" : ""}`} onClick={handleLinkClick}>
-						Knowledge Library
-					</Link>
-					{isHomePage ? (
-						<>
-							<Link to="/designer" className={`nav-link ${isDesignerPage ? 'active' : ''}`} onClick={handleLinkClick}>
-								3D Designer
-							</Link>
-							<a href="#learn" className="nav-link" onClick={() => scrollToSection("learn")}>
-								Learn & Train
-							</a>
-							<a href="#events" className="nav-link" onClick={() => scrollToSection("events")}>
-								Live Events
-							</a>
-							<a href="#community" className="nav-link" onClick={() => scrollToSection("community")}>
-								Community
-							</a>
-							<a href="#competitions" className="nav-link" onClick={() => scrollToSection("competitions")}>
-								Competitions
-							</a>
-						</>
-					) : (
-						<>
-							<Link to="/designer" className={`nav-link ${isDesignerPage ? 'active' : ''}`} onClick={handleLinkClick}>
-								3D Designer
-							</Link>
-							<Link to="/#learn" className="nav-link" onClick={handleLinkClick}>
-								Learn & Train
-							</Link>
-							<Link to="/#events" className="nav-link" onClick={handleLinkClick}>
-								Live Events
-							</Link>
-							<Link to="/#community" className="nav-link" onClick={handleLinkClick}>
-								Community
-							</Link>
-							<Link to="/#competitions" className="nav-link" onClick={handleLinkClick}>
-								Competitions
-							</Link>
-						</>
-					)}
+					<button className="nav-link" onClick={() => scrollToSection("events")}>
+						Events
+					</button>
+					<button className="nav-link" onClick={() => scrollToSection("storytelling")}>
+						Story
+					</button>
+					<button className="nav-link" onClick={() => scrollToSection("timeline")}>
+						History
+					</button>
+					<button className="nav-link" onClick={() => scrollToSection("performance")}>
+						Leaderboard
+					</button>
+					<button className="nav-link" onClick={() => scrollToSection("community")}>
+						Community
+					</button>
+					<button className="nav-link" onClick={() => scrollToSection("library")}>
+						Library
+					</button>
+					<button className="nav-link" onClick={() => scrollToSection("academy")}>
+						Academy
+					</button>
+					<button className="nav-link" onClick={() => scrollToSection("competitions")}>
+						Campaigns
+					</button>
 
 					{/* Mobile Actions */}
 					<div className="nav-actions-mobile">
